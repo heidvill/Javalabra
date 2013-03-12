@@ -1,0 +1,5 @@
+tuntikirjanpito
+
+Pv	tunteja	mitä tehtiin
+11.3.	1,5	GitHubin asennus ja käytön harjoittelua
+12.3.
