@@ -1,8 +1,12 @@
 
 package tetris.domain;
+//abstrakti luokka???
 
 public interface Pala {
     void liiku();
-    void kierra();
+    void kierraOikealle();
     void lisaaRuutu();
+    @Override
+    String toString();
+    
 }
