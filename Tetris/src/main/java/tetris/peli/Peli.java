@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.domain;
+package tetris.peli;
 
 /**
  *
  * @author heidvill
  */
-public class Palikat {
+public class Peli {
     
 }

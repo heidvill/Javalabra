@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package tetris.peli;
+package tetris.gui;
 
 /**
  *
  * @author heidvill
  */
-public class peli {
+public class Kayttoliittyma {
     
 }
