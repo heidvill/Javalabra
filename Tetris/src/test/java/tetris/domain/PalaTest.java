@@ -2,23 +2,28 @@
 package tetris.domain;
 
 import junit.framework.TestCase;
+//import org.junit.Before;
+//import org.junit.Test;
 
-public class PalaTest extends TestCase {
+/**
+ *
+ * @author heidvill
+ */
+public class PalaTest{
     
-    public PalaTest(String testName) {
-        super(testName);
+    public PalaTest() {
     }
+//    
+//   @Before
+//    public void setUp() {}
+//    
+//    @After
+//    public void tearDown() {
+//    }
     
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-    
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
     // TODO add test methods here. The name must begin with 'test'. For example:
     // public void testHello() {}
+    
+//    @Test
     
 }

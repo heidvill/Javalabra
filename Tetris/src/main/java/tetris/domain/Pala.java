@@ -1,7 +1,7 @@
 
 package tetris.domain;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 
 public abstract class Pala {
@@ -11,8 +11,7 @@ public abstract class Pala {
        //ruudut = new ArrayList(); 
     }
    
-   
-    public abstract void liiku();
+   public abstract void liiku();
     abstract void kierraOikealle();
     abstract void lisaaRuutu();
     

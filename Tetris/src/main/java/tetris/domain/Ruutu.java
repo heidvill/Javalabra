@@ -25,6 +25,13 @@ public class Ruutu {
     public void setY(int y) {
         this.y = y;
     }
+    
+    public boolean osuuko(Ruutu r){
+        if(x+1== r.getX()){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public String toString() {

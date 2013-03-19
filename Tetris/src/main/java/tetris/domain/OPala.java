@@ -9,8 +9,11 @@ public class OPala extends Pala {
     private int leveys;
     private Suunta suunta;
 
-    public OPala() {
+    public OPala(int leveys) {
         ruudut = new ArrayList();
+        this.leveys = leveys;
+        this.suunta = Suunta.ALAS;
+        lisaaRuutu();
     }
 
     public void liiku() {
@@ -37,17 +40,15 @@ public class OPala extends Pala {
         } else {
             //tarkista voiko liikka alaspäin???
             for (Ruutu ruutu : ruudut) {
-                ruutu.setY(ruutu.getY() - 1);
+                ruutu.setY(ruutu.getY() + 1);
             }
         }
+        
+        lisaaRuutu();
 
     }
 
     public void kierraOikealle() {
-<<<<<<< HEAD
-=======
-        
->>>>>>> e28b195d59fbeaf0f7e06b7fe53d5b2c9e46f055
     }
 
     public void lisaaRuutu() {
