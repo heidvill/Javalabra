@@ -3,7 +3,7 @@ package tetris.domain;
 import java.util.ArrayList;
 import tetris.Suunta;
 
-public class OPala implements Pala {
+public class OPala extends Pala {
 
     private ArrayList<Ruutu> ruudut;
     private int leveys;
@@ -44,6 +44,10 @@ public class OPala implements Pala {
     }
 
     public void kierraOikealle() {
+<<<<<<< HEAD
+=======
+        
+>>>>>>> e28b195d59fbeaf0f7e06b7fe53d5b2c9e46f055
     }
 
     public void lisaaRuutu() {
