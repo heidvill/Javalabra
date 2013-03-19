@@ -5,7 +5,7 @@ import tetris.Suunta;
 
 public class OPala implements Pala {
 
-    ArrayList<Ruutu> ruudut;
+    private ArrayList<Ruutu> ruudut;
     private int leveys;
     private Suunta suunta;
 
@@ -44,7 +44,6 @@ public class OPala implements Pala {
     }
 
     public void kierraOikealle() {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public void lisaaRuutu() {
