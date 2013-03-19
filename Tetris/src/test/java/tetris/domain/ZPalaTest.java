@@ -7,24 +7,24 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class SPalaTest {
+public class ZPalaTest {
 
-    private SPala pala;
+    private ZPala pala;
 
-    public SPalaTest() {
+    public ZPalaTest() {
     }
-//
+
 //    @BeforeClass
 //    public static void setUpClass() {
 //    }
-//
+//    
 //    @AfterClass
 //    public static void tearDownClass() {
 //    }
-
+//    
     @Before
     public void setUp() {
-        pala = new SPala(20);
+        pala = new ZPala(20);
         pala.liiku();
         pala.liiku();
     }
@@ -39,17 +39,9 @@ public class SPalaTest {
     // public void hello() {}
 
     @Test
-    public void palaOikein() {
-
-
-        assertEquals("[(9,2), (10,2), (10,1), (11,1)]", pala.toString());
-    }
-
-    @Test
     public void palaKaantyyOikein() {
         pala.kierraOikealle();
 
-        assertEquals("[(10,1), (10,2), (11,2), (11,3)]", pala.toString());
+        assertEquals("[(10,2), (10,3), (11,1), (11,2)]", pala.toString());
     }
-    
 }

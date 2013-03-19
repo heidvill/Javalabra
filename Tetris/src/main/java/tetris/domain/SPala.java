@@ -35,7 +35,7 @@ public class SPala extends Pala {
             r3.setX(r3.getX() + 1);
             r3.setY(r3.getY() + 1);
              // tarkista osuuko alapuolelle!
-            r4.setX(r4.getX() + 2);
+            r4.setY(r4.getY() + 2);
             kaantynyt = true;
         }
     }
