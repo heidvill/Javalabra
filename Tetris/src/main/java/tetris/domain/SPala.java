@@ -14,12 +14,12 @@ public class SPala extends Pala {
     }
 
     @Override
-   public void kierraOikealle() {
+    public void kierraOikealle() {
         if (kaantynyt) {
             if (r1.getX() == 0) {
                 return;
             }
-
+            kaantynyt = false;
             r3.setX(r1.getX());
             r3.setY(r1.getY());
 
@@ -27,16 +27,18 @@ public class SPala extends Pala {
             r1.setY(r1.getY() + 1);
 
             r4.setX(r4.getX() - 2);
-            kaantynyt = false;
+
         } else {
+
+            kaantynyt = true;
             r1.setX(r3.getX());
             r1.setY(r3.getY());
 
             r3.setX(r3.getX() + 1);
             r3.setY(r3.getY() + 1);
-             // tarkista osuuko alapuolelle!
+            // tarkista osuuko alapuolelle!
             r4.setY(r4.getY() + 2);
-            kaantynyt = true;
+
         }
     }
 
