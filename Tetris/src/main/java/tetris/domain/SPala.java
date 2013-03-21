@@ -6,20 +6,20 @@ public class SPala extends Pala {
     private Ruutu r2;
     private Ruutu r3;
     private Ruutu r4;
-    private boolean kaantynyt;
+    private int kaannos;
 
     public SPala(int leveys) {
         super(leveys);
-        kaantynyt = false;
+        kaannos = 1;
     }
 
     @Override
     public void kierraOikealle() {
-        if (kaantynyt) {
+        if (kaannos==1) {
             if (r1.getX() == 0) {
                 return;
             }
-            kaantynyt = false;
+            kaannos = 2;
             r3.setX(r1.getX());
             r3.setY(r1.getY());
 
@@ -28,9 +28,9 @@ public class SPala extends Pala {
 
             r4.setX(r4.getX() - 2);
 
-        } else {
+        } else if(kaannos == 2) {
 
-            kaantynyt = true;
+            kaannos = 3;
             r1.setX(r3.getX());
             r1.setY(r3.getY());
 
