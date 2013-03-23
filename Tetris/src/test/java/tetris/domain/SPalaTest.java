@@ -1,11 +1,9 @@
 package tetris.domain;
 
 import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class SPalaTest {
 
@@ -13,14 +11,6 @@ public class SPalaTest {
 
     public SPalaTest() {
     }
-//
-//    @BeforeClass
-//    public static void setUpClass() {
-//    }
-//
-//    @AfterClass
-//    public static void tearDownClass() {
-//    }
 
     @Before
     public void setUp() {
@@ -32,11 +22,6 @@ public class SPalaTest {
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 
     @Test
     public void palaOikein() {

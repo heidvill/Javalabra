@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.Timer;
 import tetris.domain.IPala;
+import tetris.domain.JPala;
 import tetris.domain.LPala;
 import tetris.domain.Pala;
 import tetris.domain.SPala;
@@ -30,7 +31,7 @@ public class Peli extends Timer implements ActionListener {
 
         addActionListener(this);
         setInitialDelay(2000);
-        this.pala = new LPala(leveys / 2, korkeus);
+        this.pala = new JPala(leveys / 2, korkeus);
     }
 
     public boolean jatkuu() {
