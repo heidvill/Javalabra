@@ -26,8 +26,16 @@ public class Ruutu {
         this.y = y;
     }
     
+    public void setXY(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    
     public boolean osuuko(Ruutu r){
         if(x+1== r.getX()){
+            return true;
+        }
+        if(y-1 == r.getY() || y+1 == r.getY()){
             return true;
         }
         return false;
@@ -36,7 +44,6 @@ public class Ruutu {
     @Override
     public String toString() {
         return "(" + x + "," + y + ")";
-    }
-    
+    }    
     
 }

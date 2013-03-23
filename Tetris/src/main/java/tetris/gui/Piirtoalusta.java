@@ -21,7 +21,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.WHITE);
+        g.setColor(peli.getPala().getVari());
         for (Ruutu r : peli.getPala().getRuudut()) {
             g.fill3DRect(r.getX()*palanSivunPituus, r.getY()*palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
         }

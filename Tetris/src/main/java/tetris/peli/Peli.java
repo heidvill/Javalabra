@@ -6,15 +6,17 @@ import java.util.List;
 import java.util.Random;
 import javax.swing.Timer;
 import tetris.Suunta;
+import tetris.domain.IPala;
 import tetris.domain.Pala;
 import tetris.domain.SPala;
+import tetris.domain.ZPala;
 //import tetris.domain.Omena;
 import tetris.gui.Paivitettava;
 
 public class Peli extends Timer implements ActionListener {
 
-    private int leveys;
-    private int korkeus;
+//    private int leveys;
+//    private int korkeus;
     private boolean jatkuu;
     private Paivitettava paivitettava;
     private Pala pala;
@@ -23,13 +25,13 @@ public class Peli extends Timer implements ActionListener {
     public Peli(int leveys, int korkeus) {
         super(1000, null);
 
-        this.leveys = leveys;
-        this.korkeus = korkeus;
+//        this.leveys = leveys;
+//        this.korkeus = korkeus;
         this.jatkuu = true;
 
         addActionListener(this);
         setInitialDelay(2000);
-        this.pala = new SPala(leveys / 2);
+        this.pala = new IPala(leveys / 2, korkeus);
 //        this.omena = new Omena(new Random().nextInt(leveys), new Random().nextInt(korkeus));
     }
 

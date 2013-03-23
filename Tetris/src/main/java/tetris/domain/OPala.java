@@ -1,15 +1,16 @@
 package tetris.domain;
 
-import tetris.Suunta;
+import java.awt.Color;
 
 public class OPala extends Pala {
 
-    public OPala(int leveys) {
-        super(leveys);
+    public OPala(int leveys, int korkeus) {
+        super(leveys, korkeus);
+        vari = Color.YELLOW;
     }
 
     public void kierraOikealle() {
-    }
+           }
 
     public void lisaaRuutu() {
         if (ruudut.size() < 4) {

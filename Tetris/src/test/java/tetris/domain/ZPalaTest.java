@@ -24,7 +24,7 @@ public class ZPalaTest {
 //    
     @Before
     public void setUp() {
-        pala = new ZPala(20);
+        pala = new ZPala(20, 30);
         pala.liiku();
         pala.liiku();
     }
@@ -41,7 +41,9 @@ public class ZPalaTest {
     @Test
     public void palaKaantyyOikein() {
         pala.kierraOikealle();
-
         assertEquals("[(10,2), (10,3), (11,1), (11,2)]", pala.toString());
+        
+        pala.kierraOikealle();
+        assertEquals("[(10,2), (11,2), (9,1), (10,1)]", pala.toString());
     }
 }

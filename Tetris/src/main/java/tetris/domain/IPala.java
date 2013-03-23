@@ -1,6 +1,6 @@
 package tetris.domain;
 
-import com.sun.imageio.spi.RAFImageInputStreamSpi;
+import java.awt.Color;
 
 public class IPala extends Pala {
 
@@ -8,15 +8,29 @@ public class IPala extends Pala {
     private Ruutu r2;
     private Ruutu r3;
     private Ruutu r4;
-    private boolean kaantynyt;
 
-    public IPala(int leveys) {
-        super(leveys);
-        kaantynyt = false;
+    public IPala(int leveys, int korkeus) {
+        super(leveys, korkeus);
+        vari = Color.CYAN;
     }
 
     @Override
     public void kierraOikealle() {
+        if(kaannos==1){ //käännetään vaakasuuntaan
+            kaannos = 2;
+            int sar = -1;
+            for (Ruutu ruutu : ruudut) {
+                ruutu.setXY(ruutu.getX()+sar, r2.getY());
+                sar++;
+            }
+        }else{ //käännetään pystyyn
+            kaannos = 1;
+            int rivi = 1;
+            for (Ruutu ruutu : ruudut) {
+                ruutu.setXY(r2.getX(), ruutu.getY()+rivi);
+                rivi--;
+            }
+        }
         
     }
 
@@ -33,6 +47,7 @@ public class IPala extends Pala {
             ruudut.add(r3);
         } else if(ruudut.size()==3){
             r4 = new Ruutu(leveys/2, 0);
+            ruudut.add(r4);
         }
     }
 }
