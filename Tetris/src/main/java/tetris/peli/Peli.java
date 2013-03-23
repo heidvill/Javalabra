@@ -5,12 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Random;
 import javax.swing.Timer;
-import tetris.Suunta;
 import tetris.domain.IPala;
+import tetris.domain.LPala;
 import tetris.domain.Pala;
 import tetris.domain.SPala;
 import tetris.domain.ZPala;
-//import tetris.domain.Omena;
 import tetris.gui.Paivitettava;
 
 public class Peli extends Timer implements ActionListener {
@@ -31,8 +30,7 @@ public class Peli extends Timer implements ActionListener {
 
         addActionListener(this);
         setInitialDelay(2000);
-        this.pala = new IPala(leveys / 2, korkeus);
-//        this.omena = new Omena(new Random().nextInt(leveys), new Random().nextInt(korkeus));
+        this.pala = new LPala(leveys / 2, korkeus);
     }
 
     public boolean jatkuu() {
@@ -65,7 +63,7 @@ public class Peli extends Timer implements ActionListener {
         return pala;
     }
 
-    public void setMato(Pala pala) {
+    public void setPala(Pala pala) {
         this.pala = pala;
     }
 

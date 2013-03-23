@@ -20,6 +20,14 @@ public class JPala extends Pala {
 
     @Override
     public void lisaaRuutu() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(ruudut.isEmpty()){
+            r1 = new Ruutu(leveys/2, 0);
+            ruudut.add(r1);
+        }else if(ruudut.size()==1){
+            r2 = new Ruutu(leveys/2, 0);
+            ruudut.add(r2);
+        } else if(ruudut.size()<4){
+            
+        }
     }
 }
