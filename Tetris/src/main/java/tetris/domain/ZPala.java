@@ -4,11 +4,6 @@ import java.awt.Color;
 
 public class ZPala extends Pala {
 
-    private Ruutu r1;
-    private Ruutu r2;
-    private Ruutu r3;
-    private Ruutu r4;
-
     public ZPala(int leveys, int korkeus) {
         super(leveys, korkeus);
         vari = Color.GREEN;
@@ -16,7 +11,7 @@ public class ZPala extends Pala {
 
     @Override
     public void kierraOikealle() {
-        if (kaannos==2) {
+        if (kaannos == 2) {
             if (r1.getX() == 0) {
                 return;
             }

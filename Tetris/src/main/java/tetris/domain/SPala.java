@@ -4,11 +4,6 @@ import java.awt.Color;
 
 public class SPala extends Pala {
 
-    private Ruutu r1;
-    private Ruutu r2;
-    private Ruutu r3;
-    private Ruutu r4;
-
     public SPala(int leveys, int korkeus) {
         super(leveys, korkeus);
         vari = Color.BLUE;

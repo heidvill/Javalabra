@@ -12,56 +12,68 @@ public abstract class Pala {
     protected int kaannos;
     protected int korkeus;
     protected Color vari;
+    protected Ruutu r1;
+    protected Ruutu r2;
+    protected Ruutu r3;
+    protected Ruutu r4;
 
     public Pala(int leveys, int korkeus) {
         ruudut = new ArrayList();
         suunta = Suunta.ALAS;
         this.leveys = leveys;
-        kaannos = 1;
         this.korkeus = korkeus;
-
-        lisaaRuutu();
+        kaannos = 1;
     }
 
     public void liiku() {
         if (suunta == Suunta.VASEN) {
-            suunta = Suunta.ALAS;
-            if (ruudut.size() < 4) {
-                return;
-            }
-            for (Ruutu ruutu : ruudut) {
-                if (ruutu.getX() == 0) {
-                    return;
-                }
-            }
-            for (Ruutu ruutu : ruudut) {
-                ruutu.setX(ruutu.getX() - 1);
-            }
-
+            liikuVasemmalle();
         } else if (suunta == Suunta.OIKEA) {
-            suunta = Suunta.ALAS;
-            if (ruudut.size() < 4) {
+            liikuOikealle();
+        } else {
+            liikuAlas();
+        }
+    }
+
+    private void liikuVasemmalle() {
+        suunta = Suunta.ALAS;
+        if (ruudut.size() < 4) {
+            return;
+        }
+        for (Ruutu ruutu : ruudut) {
+            if (ruutu.getX() == 0) {
                 return;
             }
-            for (Ruutu ruutu : ruudut) {
-                if (ruutu.getX() == leveys - 1) {
-                    return;
-                }
-            }
-            for (Ruutu ruutu : ruudut) {
-                ruutu.setX(ruutu.getX() + 1);
-            }
+        }
+        for (Ruutu ruutu : ruudut) {
+            ruutu.setX(ruutu.getX() - 1);
+        }
+    }
 
-        } else {
-            //tarkista voiko liikka alaspäin???
-            for (Ruutu ruutu : ruudut) {
-                if (ruutu.getY() + 1 == korkeus) {
-                    return;
-                }
+    private void liikuOikealle() {
+        suunta = Suunta.ALAS;
+        if (ruudut.size() < 4) {
+            return;
+        }
+        for (Ruutu ruutu : ruudut) {
+            if (ruutu.getX() == leveys - 1) {
+                return;
             }
-            for (Ruutu ruutu : ruudut) {
-                ruutu.setY(ruutu.getY() + 1);
+        }
+        for (Ruutu ruutu : ruudut) {
+            ruutu.setX(ruutu.getX() + 1);
+        }
+    }
+
+    private void liikuAlas() {
+        //tarkista voiko liikkua alaspäin???
+        for (Ruutu ruutu : ruudut) {
+            if (ruutu.getY() + 1 == korkeus) {
+                return;
             }
+        }
+        for (Ruutu ruutu : ruudut) {
+            ruutu.setY(ruutu.getY() + 1);
         }
 
         lisaaRuutu();

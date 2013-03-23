@@ -9,9 +9,11 @@ public class OPala extends Pala {
         vari = Color.YELLOW;
     }
 
+    @Override
     public void kierraOikealle() {
-           }
+    }
 
+    @Override
     public void lisaaRuutu() {
         if (ruudut.size() < 4) {
             ruudut.add(new Ruutu(leveys / 2, 0));

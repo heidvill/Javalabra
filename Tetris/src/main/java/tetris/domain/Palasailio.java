@@ -34,6 +34,10 @@ public class Palasailio {
         return palat.get(indeksi);
     }
     
+    public int sailionKoko(){
+        return palat.size();
+    }
+    
     
     
 }

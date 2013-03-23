@@ -1,11 +1,9 @@
 package tetris.domain;
 
 import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
 
 public class ZPalaTest {
 
@@ -14,14 +12,6 @@ public class ZPalaTest {
     public ZPalaTest() {
     }
 
-//    @BeforeClass
-//    public static void setUpClass() {
-//    }
-//    
-//    @AfterClass
-//    public static void tearDownClass() {
-//    }
-//    
     @Before
     public void setUp() {
         pala = new ZPala(20, 30);
@@ -32,18 +22,14 @@ public class ZPalaTest {
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 
     @Test
     public void palaKaantyyOikein() {
         pala.kierraOikealle();
-        assertEquals("[(10,2), (10,3), (11,1), (11,2)]", pala.toString());
-        
+        assertEquals("[(10,1), (10,2), (11,0), (11,1)]", pala.toString());
+
         pala.kierraOikealle();
-        assertEquals("[(10,2), (11,2), (9,1), (10,1)]", pala.toString());
+        assertEquals("[(10,1), (11,1), (9,0), (10,0)]", pala.toString());
+        assertEquals(4, pala.ruudut.size());
     }
 }

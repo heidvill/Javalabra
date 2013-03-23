@@ -2,15 +2,10 @@ package tetris.peli;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.Random;
 import javax.swing.Timer;
-import tetris.domain.IPala;
-import tetris.domain.JPala;
-import tetris.domain.LPala;
 import tetris.domain.Pala;
-import tetris.domain.SPala;
-import tetris.domain.ZPala;
+import tetris.domain.Palasailio;
 import tetris.gui.Paivitettava;
 
 public class Peli extends Timer implements ActionListener {
@@ -20,18 +15,21 @@ public class Peli extends Timer implements ActionListener {
     private boolean jatkuu;
     private Paivitettava paivitettava;
     private Pala pala;
+    private Palasailio palasailio;
 //    private Omena omena;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
-
+        palasailio = new Palasailio(leveys, korkeus);
+        
 //        this.leveys = leveys;
 //        this.korkeus = korkeus;
         this.jatkuu = true;
 
         addActionListener(this);
         setInitialDelay(2000);
-        this.pala = new JPala(leveys / 2, korkeus);
+        Random r = new Random();
+        this.pala = palasailio.getPala(r.nextInt(palasailio.sailionKoko()));
     }
 
     public boolean jatkuu() {

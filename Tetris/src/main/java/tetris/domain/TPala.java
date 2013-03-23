@@ -1,13 +1,8 @@
-
 package tetris.domain;
 
 import java.awt.Color;
 
-public class TPala extends Pala{
-    private Ruutu r1;
-    private Ruutu r2;
-    private Ruutu r3;
-    private Ruutu r4;
+public class TPala extends Pala {
 
     public TPala(int leveys, int korkeus) {
         super(leveys, korkeus);
@@ -16,14 +11,35 @@ public class TPala extends Pala{
 
     @Override
     public void kierraOikealle() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        r1.setXY(r4.getX(), r4.getY());
+        r4.setXY(r3.getX(), r3.getY());
+        if (kaannos == 1) {
+            kaannos = 2;
+            r3.setXY(r3.getX() - 1, r3.getY() + 1);
+        } else if (kaannos == 2) {
+            kaannos = 3;
+            r3.setXY(r3.getX() - 1, r3.getY() - 1);
+        } else if (kaannos == 3) {
+            kaannos = 4;
+            r3.setXY(r3.getX() + 1, r3.getY() - 1);
+        } else {
+            kaannos = 1;
+            r3.setXY(r3.getX() + 1, r3.getY() + 1);
+        }
     }
 
     @Override
     public void lisaaRuutu() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (ruudut.isEmpty()) {
+            r1 = new Ruutu(leveys / 2 - 1, 0);
+            r2 = new Ruutu(leveys / 2, 0);
+            r3 = new Ruutu(leveys / 2 + 1, 0);
+            ruudut.add(r1);
+            ruudut.add(r2);
+            ruudut.add(r3);
+        } else if (ruudut.size() < 4) {
+            r4 = new Ruutu(leveys / 2, 0);
+            ruudut.add(r4);
+        }
     }
-    
-    
-    
 }

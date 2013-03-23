@@ -4,11 +4,6 @@ import java.awt.Color;
 
 public class IPala extends Pala {
 
-    private Ruutu r1;
-    private Ruutu r2;
-    private Ruutu r3;
-    private Ruutu r4;
-
     public IPala(int leveys, int korkeus) {
         super(leveys, korkeus);
         vari = Color.CYAN;
@@ -30,8 +25,7 @@ public class IPala extends Pala {
                 ruutu.setXY(r2.getX(), ruutu.getY()+rivi);
                 rivi--;
             }
-        }
-        
+        }    
     }
 
     @Override

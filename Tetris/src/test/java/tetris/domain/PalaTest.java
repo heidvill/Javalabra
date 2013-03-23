@@ -16,6 +16,7 @@ public class PalaTest {
     @Before
     public void setUp() {
         oPala = new OPala(20, 30);
+        oPala.liiku();
 
     }
 
@@ -68,6 +69,7 @@ public class PalaTest {
         oPala = new OPala(2, 2);
 
         oPala.liiku();
+        oPala.liiku();
         oPala.setSuunta(Suunta.VASEN);
         oPala.liiku();
         oPala.setSuunta(Suunta.VASEN);
@@ -80,6 +82,7 @@ public class PalaTest {
     public void palaEiVoiLiikkuaOikealle() {
         oPala = new OPala(2, 2);
 
+        oPala.liiku();
         oPala.liiku();
         oPala.setSuunta(Suunta.OIKEA);
         oPala.liiku();
