@@ -1,7 +1,6 @@
 ﻿Aihe: Tetris
 
 Käyttäjä: pelaaja
-Toiminto: pelaaja pelaa peliä
 
 Tetriksen ideana on kerätä pisteitä pudottelemalla paloista koostuvia palikoita ja muodostaa niistä vaakasuoria rivejä. Palikoita on seitsemän erilaista ja yksi palikka muodostuu neljästä palasta. Palikat tulevat ylhäältä ja liikkuvat alaspäin. Paloja voi kiertää oikealle.
 Kun rivi tulee täyteen, se poistetaan ja ylemmät rivit putoavat yhden rivin alemmaksi. 
