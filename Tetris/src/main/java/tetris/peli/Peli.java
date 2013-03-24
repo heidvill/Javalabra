@@ -2,34 +2,32 @@ package tetris.peli;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.Timer;
 import tetris.domain.Pala;
 import tetris.domain.Palasailio;
+import tetris.domain.Ruutu;
 import tetris.gui.Paivitettava;
 
 public class Peli extends Timer implements ActionListener {
 
-//    private int leveys;
-//    private int korkeus;
     private boolean jatkuu;
     private Paivitettava paivitettava;
     private Pala pala;
     private Palasailio palasailio;
-//    private Omena omena;
+    private ArrayList<Ruutu> paikoillaanOlevat;
+    private Random random;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
         palasailio = new Palasailio(leveys, korkeus);
-        
-//        this.leveys = leveys;
-//        this.korkeus = korkeus;
+        paikoillaanOlevat = new ArrayList();
         this.jatkuu = true;
-
         addActionListener(this);
         setInitialDelay(2000);
-        Random r = new Random();
-        this.pala = palasailio.getPala(r.nextInt(palasailio.sailionKoko()));
+        this.random = new Random();
+        this.pala = palasailio.getPala(random.nextInt(palasailio.sailionKoko()));
     }
 
     public boolean jatkuu() {
@@ -46,13 +44,26 @@ public class Peli extends Timer implements ActionListener {
             return;
         }
         pala.liiku();
-//        if (pala.osuu(omena)) {
-//            pala.kasva();
-//            omena = new Omena(new Random().nextInt(leveys), new Random().nextInt(korkeus));
+        if (!pala.isLiikkeessa()) {
+            for (Ruutu ruutu : pala.getRuudut()) {
+                paikoillaanOlevat.add(ruutu);
+            }
+            pala = palasailio.getPala(random.nextInt(palasailio.sailionKoko()));
+        }
+
+//        if (!ruudut.isEmpty()) {
+//            for (Ruutu r : pala.getRuudut()) {
+//                for (Ruutu ruutu : ruudut) {
+//                    if (r.osuuAlas(ruutu)) {
+//                        for (Ruutu r1 : pala.getRuudut()) {
+//                            ruudut.add(r1);
+//                        }
+//                        pala = palasailio.getPala(random.nextInt(palasailio.sailionKoko()));
+//                    }
+//                }
+//            }
 //        }
-//        if (pala.osuuItseensa()) {
-//            jatkuu = false;
-//        }
+
         paivitettava.paivita();
 //        setDelay(1000 / pala.getPituus());
         setDelay(500);
@@ -66,11 +77,7 @@ public class Peli extends Timer implements ActionListener {
         this.pala = pala;
     }
 
-//    public Omena getOmena() {
-//        return omena;
-//    }
-
-//    public void setOmena(Omena omena) {
-//        this.omena = omena;
-//    }
+    public ArrayList<Ruutu> getPaikoillaanOlevat() {
+        return paikoillaanOlevat;
+    }
 }

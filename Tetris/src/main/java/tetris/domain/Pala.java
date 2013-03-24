@@ -16,6 +16,7 @@ public abstract class Pala {
     protected Ruutu r2;
     protected Ruutu r3;
     protected Ruutu r4;
+    private boolean liikkeessa;
 
     public Pala(int leveys, int korkeus) {
         ruudut = new ArrayList();
@@ -23,6 +24,7 @@ public abstract class Pala {
         this.leveys = leveys;
         this.korkeus = korkeus;
         kaannos = 1;
+        liikkeessa = true;
     }
 
     public void liiku() {
@@ -40,6 +42,7 @@ public abstract class Pala {
         if (ruudut.size() < 4) {
             return;
         }
+        //jos ollaan jo reunassa
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getX() == 0) {
                 return;
@@ -55,6 +58,7 @@ public abstract class Pala {
         if (ruudut.size() < 4) {
             return;
         }
+        //jos ollaan jo reunassa
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getX() == leveys - 1) {
                 return;
@@ -66,9 +70,10 @@ public abstract class Pala {
     }
 
     private void liikuAlas() {
-        //tarkista voiko liikkua alaspäin???
+        //jos ollaan jo pohjalla
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getY() + 1 == korkeus) {
+                liikkeessa = false;
                 return;
             }
         }
@@ -78,11 +83,47 @@ public abstract class Pala {
 
         lisaaRuutu();
     }
+    
+    public boolean osuuVasemmalle(Ruutu r){
+        for (Ruutu ruutu : ruudut) {
+            if(ruutu.osuuVasemmalle(r)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean osuuOikealle(Ruutu r){
+        for (Ruutu ruutu : ruudut) {
+            if(ruutu.osuuOikealle(r)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
+    
+    public boolean osuuAlas(Ruutu r){
+        for (Ruutu ruutu : ruudut) {
+            if(ruutu.osuuAlas(r)){
+                
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
         return ruudut.toString();
     }
+
+    public boolean isLiikkeessa() {
+        return liikkeessa;
+    }
+    
+    
 
     public ArrayList<Ruutu> getRuudut() {
         return ruudut;

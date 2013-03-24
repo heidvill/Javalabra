@@ -23,6 +23,13 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         for (Ruutu r : peli.getPala().getRuudut()) {
             g.fill3DRect(r.getX() * palanSivunPituus, r.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
         }
+
+        if (!peli.getPaikoillaanOlevat().isEmpty()) {
+            for (Ruutu ruutu : peli.getPaikoillaanOlevat()) {
+                g.setColor(ruutu.getVari());
+                g.fill3DRect(ruutu.getX() * palanSivunPituus, ruutu.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
+            }
+        }
     }
 
     @Override

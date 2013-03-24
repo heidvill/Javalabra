@@ -16,8 +16,8 @@ public class OPala extends Pala {
     @Override
     public void lisaaRuutu() {
         if (ruudut.size() < 4) {
-            ruudut.add(new Ruutu(leveys / 2, 0));
-            ruudut.add(new Ruutu(leveys / 2 - 1, 0));
+            ruudut.add(new Ruutu(leveys / 2, 0, vari));
+            ruudut.add(new Ruutu(leveys / 2 - 1, 0, vari));
         }
     }
 }

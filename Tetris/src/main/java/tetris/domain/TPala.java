@@ -31,14 +31,14 @@ public class TPala extends Pala {
     @Override
     public void lisaaRuutu() {
         if (ruudut.isEmpty()) {
-            r1 = new Ruutu(leveys / 2 - 1, 0);
-            r2 = new Ruutu(leveys / 2, 0);
-            r3 = new Ruutu(leveys / 2 + 1, 0);
+            r1 = new Ruutu(leveys / 2 - 1, 0, vari);
+            r2 = new Ruutu(leveys / 2, 0, vari);
+            r3 = new Ruutu(leveys / 2 + 1, 0, vari);
             ruudut.add(r1);
             ruudut.add(r2);
             ruudut.add(r3);
         } else if (ruudut.size() < 4) {
-            r4 = new Ruutu(leveys / 2, 0);
+            r4 = new Ruutu(leveys / 2, 0, vari);
             ruudut.add(r4);
         }
     }

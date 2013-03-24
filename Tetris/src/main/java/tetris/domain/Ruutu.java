@@ -1,17 +1,25 @@
 package tetris.domain;
 
+import java.awt.Color;
+
 public class Ruutu {
 
     private int x;
     private int y;
+    private Color vari;
 
-    public Ruutu(int x, int y) {
+    public Ruutu(int x, int y, Color vari) {
         this.x = x;
         this.y = y;
+        this.vari = vari;
     }
 
     public int getX() {
         return x;
+    }
+
+    public Color getVari() {
+        return vari;
     }
 
     public int getY() {
@@ -31,12 +39,12 @@ public class Ruutu {
         this.y = y;
     }
     
-    public boolean osuu(Ruutu r){
-        if(osuuAlas(r) || osuuOikealle(r) || osuuVasemmalle(r)){
-            return true;
-        }
-        return false;
-    }
+//    public boolean osuu(Ruutu r){
+//        if(osuuAlas(r) || osuuOikealle(r) || osuuVasemmalle(r)){
+//            return true;
+//        }
+//        return false;
+//    }
 
     public boolean osuuAlas(Ruutu r) {
         if (y + 1 == r.getY() && x == r.getX()) {
@@ -63,4 +71,6 @@ public class Ruutu {
     public String toString() {
         return "(" + x + "," + y + ")";
     }
+    
+    
 }
