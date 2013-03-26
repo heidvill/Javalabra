@@ -3,6 +3,8 @@ tuntikirjanpito
 Pv	tunteja	mitä tehtiin
 11.3.	1,5	GitHubin asennus ja käytön harjoittelua
 12.3.	2	Aihemäärittely + Netbeansiin pari luokkaa
-14.3.	1	luokkien suunnittelua
-18.3.	0,5	luokkakaavio
+14.3.	1	Luokkien suunnittelua
+18.3.	0,5	Luokkakaavio
 19.3.	3	Luokkia ja testejä
+23.3.	4	Luokkia ja testejä
+24.3.	0,5	Luokkaakaavion tarkennusta
