@@ -13,71 +13,72 @@ import tetris.gui.Paivitettava;
 public class Peli extends Timer implements ActionListener {
 
     private boolean jatkuu;
-    private Paivitettava paivitettava;
+    private Paivitettava alusta;
     private Pala pala;
     private Palasailio palasailio;
-    private ArrayList<Ruutu> paikoillaanOlevat;
     private Random random;
+    private int leveys;
+    private int korkeus;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
         palasailio = new Palasailio(leveys, korkeus);
-        paikoillaanOlevat = new ArrayList();
         this.jatkuu = true;
         addActionListener(this);
         setInitialDelay(2000);
         this.random = new Random();
-        this.pala = palasailio.getPala(random.nextInt(palasailio.sailionKoko()));
+        this.pala = palasailio.getUusiPala(random.nextInt(7));
+        this.korkeus = korkeus;
+        this.leveys = leveys;
     }
 
     public boolean jatkuu() {
         return jatkuu;
     }
 
-    public void setPaivitettava(Paivitettava paivitettava) {
-        this.paivitettava = paivitettava;
+    public void setPiirtoalusta(Paivitettava paivitettava) {
+        this.alusta = paivitettava;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (!jatkuu) {
-            return;
-        }
-        pala.liiku();
-        if (!pala.isLiikkeessa()) {
-            for (Ruutu ruutu : pala.getRuudut()) {
-                paikoillaanOlevat.add(ruutu);
-            }
-            pala = palasailio.getPala(random.nextInt(palasailio.sailionKoko()));
-        }
-
-//        if (!ruudut.isEmpty()) {
-//            for (Ruutu r : pala.getRuudut()) {
-//                for (Ruutu ruutu : ruudut) {
-//                    if (r.osuuAlas(ruutu)) {
-//                        for (Ruutu r1 : pala.getRuudut()) {
-//                            ruudut.add(r1);
-//                        }
-//                        pala = palasailio.getPala(random.nextInt(palasailio.sailionKoko()));
-//                    }
-//                }
-//            }
+//        if (!jatkuu) {
+//            return;
 //        }
+        pala.liiku();
+        pala.osuuAlasRuutuun(palasailio);
+        etsiTaysiaRiveja();
+        if (!pala.isLiikkeessa()) {
+            palasailio.lisaaPala(pala);
+            pala = palasailio.getUusiPala(random.nextInt(7));
+        }
 
-        paivitettava.paivita();
+        alusta.paivita();
 //        setDelay(1000 / pala.getPituus());
-        setDelay(500);
+        setDelay(300);
     }
 
     public Pala getPala() {
         return pala;
     }
 
-    public void setPala(Pala pala) {
-        this.pala = pala;
+    public Palasailio getPalasailio() {
+        return palasailio;
     }
 
-    public ArrayList<Ruutu> getPaikoillaanOlevat() {
-        return paikoillaanOlevat;
+    public void etsiTaysiaRiveja() {
+        ArrayList<Integer> taydetRivit = new ArrayList<Integer>();
+        for (int rivi = 0; rivi < korkeus; rivi++) {
+            int ruutuja = 0;
+            for (Ruutu ruutu : palasailio.getRuudut()) {
+                if (ruutu.getY() == rivi) {
+                    ruutuja++;
+                }
+            }
+            if(ruutuja==leveys){
+                taydetRivit.add(rivi);
+            }
+        }
+        palasailio.poistaTaydetRivit(taydetRivit);
     }
 }

@@ -11,26 +11,28 @@ public class JPala extends Pala {
 
     @Override
     public void kierraOikealle() {
-        if (kaannos == 1) {
-            kaannos = 2;
-            r4.setY(r4.getY() + 2);
-            r3.setXY(r3.getX() + 1, r3.getY() + 1);
-            r1.setXY(r1.getX() - 1, r1.getY() - 1);
-        } else if (kaannos == 2) {
-            kaannos = 3;
-            r4.setX(r4.getX() - 2);
-            r3.setXY(r3.getX() - 1, r3.getY() + 1);
-            r1.setXY(r1.getX() + 1, r1.getY() - 1);
-        } else if (kaannos == 3) {
-            kaannos = 4;
-            r4.setY(r4.getY() - 2);
-            r3.setXY(r3.getX() - 1, r3.getY() - 1);
-            r1.setXY(r1.getX() + 1, r1.getY() + 1);
-        } else {
-            kaannos = 1;
-            r4.setX(r4.getX() + 2);
-            r3.setXY(r3.getX()+1, r3.getY()-1);
-            r1.setXY(r1.getX()-1, r1.getY()+1);
+        if (onkoNeljaPalaa()) {
+            if (kaannos == 1) {
+                kaannos = 2;
+                r4.setY(r4.getY() + 2);
+                r3.setXY(r3.getX() + 1, r3.getY() + 1);
+                r1.setXY(r1.getX() - 1, r1.getY() - 1);
+            } else if (kaannos == 2) {
+                kaannos = 3;
+                r4.setX(r4.getX() - 2);
+                r3.setXY(r3.getX() - 1, r3.getY() + 1);
+                r1.setXY(r1.getX() + 1, r1.getY() - 1);
+            } else if (kaannos == 3) {
+                kaannos = 4;
+                r4.setY(r4.getY() - 2);
+                r3.setXY(r3.getX() - 1, r3.getY() - 1);
+                r1.setXY(r1.getX() + 1, r1.getY() + 1);
+            } else {
+                kaannos = 1;
+                r4.setX(r4.getX() + 2);
+                r3.setXY(r3.getX() + 1, r3.getY() - 1);
+                r1.setXY(r1.getX() - 1, r1.getY() + 1);
+            }
         }
     }
 

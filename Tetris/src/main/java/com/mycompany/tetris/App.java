@@ -4,15 +4,15 @@ import javax.swing.SwingUtilities;
 import tetris.gui.Kayttoliittyma;
 import tetris.peli.Peli;
 
-
 public class App {
-    public static void main( String[] args ){
-     Peli peli = new Peli(20, 25);
 
-        Kayttoliittyma kali = new Kayttoliittyma(peli, 20);
+    public static void main(String[] args) {
+        Peli tetris = new Peli(12, 20);
+
+        Kayttoliittyma kali = new Kayttoliittyma(tetris, 20);
         SwingUtilities.invokeLater(kali);
 
-        while (kali.getPaivitettava() == null) {
+        while (kali.getPiirtoalusta() == null) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
@@ -20,7 +20,7 @@ public class App {
             }
         }
 
-        peli.setPaivitettava(kali.getPaivitettava());
-        peli.start();
+        tetris.setPiirtoalusta(kali.getPiirtoalusta());
+        tetris.start();
     }
 }

@@ -23,7 +23,7 @@ public class PalasailioTest {
 
      @Test
      public void lisaaPalatOikein() {
-         assertEquals(7, sailio.sailionKoko());
-         assertEquals(0, sailio.getPala(0).getRuudut().size());
+         assertEquals(0, sailio.sailionKoko());
+         assertEquals(0, sailio.getUusiPala(0).getRuudut().size());
      }
 }
