@@ -8,3 +8,4 @@ Pv	tunteja	mitä tehtiin
 19.3.	3	Luokkia ja testejä
 23.3.	4	Luokkia ja testejä
 24.3.	0,5	Luokkaakaavion tarkennusta
+30.3.	2	Koodia
