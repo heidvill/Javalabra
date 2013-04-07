@@ -24,6 +24,6 @@ public class PalasailioTest {
      @Test
      public void lisaaPalatOikein() {
          assertEquals(0, sailio.sailionKoko());
-         assertEquals(0, sailio.getUusiPala(0).getRuudut().size());
+         assertEquals(4, sailio.getUusiPala(0).getRuudut().size());
      }
 }

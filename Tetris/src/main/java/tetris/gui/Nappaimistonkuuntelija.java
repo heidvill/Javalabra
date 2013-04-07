@@ -2,37 +2,47 @@ package tetris.gui;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import tetris.Palatyyppi;
 import tetris.Suunta;
+import tetris.domain.IPala;
+import tetris.domain.JPala;
+import tetris.domain.LPala;
+import tetris.domain.OPala;
 import tetris.domain.Pala;
+import tetris.domain.Ruutu;
+import tetris.domain.SPala;
+import tetris.domain.TPala;
+import tetris.domain.ZPala;
 import tetris.peli.Peli;
 
 public class Nappaimistonkuuntelija implements KeyListener {
 
-   // private Pala pala;
     private Peli peli;
 
     public Nappaimistonkuuntelija(Peli peli) {
         this.peli = peli;
-       // this.pala = peli.getPala();
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         Pala pala = peli.getPala();
+
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            pala.kierraOikealle();
+            if (voikoKaantaa(peli)) {
+                pala.kierraOikealle();
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             pala.setSuunta(Suunta.ALAS);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            pala.setSuunta(Suunta.VASEN);
+            if (!pala.osuuVasemmalle(peli.getPalasailio())) {
+                pala.setSuunta(Suunta.VASEN);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            pala.setSuunta(Suunta.OIKEA);
+            if (!pala.osuuOikealleRuutuun(peli.getPalasailio())) {
+                pala.setSuunta(Suunta.OIKEA);
+            }
         }
     }
-
-//    public void setPala(Pala pala) {
-//        this.pala = pala;
-//    }
 
     @Override
     public void keyTyped(KeyEvent ke) {
@@ -40,5 +50,52 @@ public class Nappaimistonkuuntelija implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent ke) {
+    }
+
+    private Pala kopioiPala(Peli peli) {
+        Pala kopio = null;
+        Palatyyppi tyyppi = peli.getPala().getTyyppi();
+        if (tyyppi == Palatyyppi.I) {
+            kopio = new IPala(0, 0);
+        } else if (tyyppi == Palatyyppi.J) {
+            kopio = new JPala(0, 0);
+        } else if (tyyppi == Palatyyppi.L) {
+            kopio = new LPala(0, 0);
+        } else if (tyyppi == Palatyyppi.O) {
+            kopio = new OPala(0, 0);
+        } else if (tyyppi == Palatyyppi.S) {
+            kopio = new SPala(0, 0);
+        } else if (tyyppi == Palatyyppi.T) {
+            kopio = new TPala(0, 0);
+        } else {
+            kopio = new ZPala(0, 0);
+        }
+        for (int i = 0; i < 4; i++) {
+            Ruutu kopionRuutu = kopio.getRuudut().get(i);
+            Ruutu palanRuutu = peli.getPala().getRuudut().get(i);
+
+            kopionRuutu.setXY(palanRuutu.getX(), palanRuutu.getY());
+        }
+
+        kopio.setKaannos(peli.getPala().getKaannos());
+
+        return kopio;
+    }
+
+    public boolean voikoKaantaa(Peli peli) {
+        Pala kopio = kopioiPala(peli);
+        kopio.kierraOikealle();
+
+        for (Ruutu ruutu : kopio.getRuudut()) {
+            if (ruutu.getX() < 0 || ruutu.getX() >= peli.getLeveys()) {
+                return false;
+            }
+        }
+
+        if (kopio.osuuAlasRuutuun(peli.getPalasailio())) {
+            return false;
+        }
+
+        return true;
     }
 }

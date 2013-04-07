@@ -2,6 +2,7 @@ package tetris.domain;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import tetris.Palatyyppi;
 import tetris.Suunta;
 
 public abstract class Pala {
@@ -17,6 +18,7 @@ public abstract class Pala {
     protected Ruutu r3;
     protected Ruutu r4;
     private boolean liikkeessa;
+    protected Palatyyppi tyyppi;
 
     public Pala(int leveys, int korkeus) {
         ruudut = new ArrayList();
@@ -39,22 +41,18 @@ public abstract class Pala {
 
     private void liikuVasemmalle() {
         suunta = Suunta.ALAS;
-        if (onkoNeljaPalaa()) {
-            if (!onkoVasemmassaReunassa()) {
-                for (Ruutu ruutu : ruudut) {
-                    ruutu.setX(ruutu.getX() - 1);
-                }
+        if (!onkoVasemmassaReunassa()) {
+            for (Ruutu ruutu : ruudut) {
+                ruutu.setX(ruutu.getX() - 1);
             }
         }
     }
 
     private void liikuOikealle() {
         suunta = Suunta.ALAS;
-        if (onkoNeljaPalaa()) {
-            if (!onkoOikeasaReunassa()) {
-                for (Ruutu ruutu : ruudut) {
-                    ruutu.setX(ruutu.getX() + 1);
-                }
+        if (!onkoOikeassaReunassa()) {
+            for (Ruutu ruutu : ruudut) {
+                ruutu.setX(ruutu.getX() + 1);
             }
         }
     }
@@ -70,22 +68,20 @@ public abstract class Pala {
         for (Ruutu ruutu : ruudut) {
             ruutu.setY(ruutu.getY() + 1);
         }
-
-        lisaaRuutu();
     }
 
-    public boolean osuuVasemmalle(Ruutu r) {
+    public boolean osuuVasemmalle(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
-            if (ruutu.osuuVasemmalle(r)) {
+            if (ruutu.osuuVasemmalleRuutuun(sailio.getRuudut())) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean osuuOikealle(Ruutu r) {
+    public boolean osuuOikealleRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
-            if (ruutu.osuuOikealle(r)) {
+            if (ruutu.osuuOikealleRuutuun(sailio.getRuudut())) {
                 return true;
             }
         }
@@ -96,9 +92,10 @@ public abstract class Pala {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.osuuAlas(sailio.getRuudut())) {
                 liikkeessa = false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -132,9 +129,9 @@ public abstract class Pala {
 
     public abstract void kierraOikealle();
 
-    public abstract void lisaaRuutu();
+   // public abstract void lisaaRuudut();
 
-    public boolean onkoOikeasaReunassa() {
+    public boolean onkoOikeassaReunassa() {
         //jos ollaan jo reunassa
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getX() == leveys - 1) {
@@ -155,4 +152,17 @@ public abstract class Pala {
         }
         return false;
     }
+
+    public int getKaannos() {
+        return kaannos;
+    }
+
+    public void setKaannos(int kaannos) {
+        this.kaannos = kaannos;
+    }
+
+    public Palatyyppi getTyyppi() {
+        return tyyppi;
+    }
+    
 }

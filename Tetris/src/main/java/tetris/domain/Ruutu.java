@@ -40,12 +40,6 @@ public class Ruutu {
         this.y = y;
     }
 
-//    public boolean osuu(Ruutu r){
-//        if(osuuAlas(r) || osuuOikealle(r) || osuuVasemmalle(r)){
-//            return true;
-//        }
-//        return false;
-//    }
     public boolean osuuAlas(ArrayList<Ruutu> ruudut) {
         for (Ruutu r : ruudut) {
             if (y + 1 == r.getY() && x == r.getX()) {
@@ -55,16 +49,43 @@ public class Ruutu {
         return false;
     }
 
-    public boolean osuuVasemmalle(Ruutu r) {
+    public boolean osuuVasemmalleRuutuun(ArrayList<Ruutu> ruudut) {
+        for (Ruutu r : ruudut) {
+            if (x - 1 == r.getX() && y == r.getY()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean osuuVasemmalleRuutuun(Ruutu r) {
         if (x - 1 == r.getX() && y == r.getY()) {
             return true;
         }
         return false;
     }
 
-    public boolean osuuOikealle(Ruutu r) {
+    public boolean osuuOikealleRuutuun(ArrayList<Ruutu> ruudut) {
+        for (Ruutu r : ruudut) {
+            if (x + 1 == r.getX() && y == r.getY()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean osuuOikealleRuutuun(Ruutu r) {
         if (x + 1 == r.getX() && y == r.getY()) {
             return true;
+        }
+        return false;
+    }
+
+    public boolean onPaallekkainRuudunKanssa(ArrayList<Ruutu> ruudut) {
+        for (Ruutu r : ruudut) {
+            if (x == r.getX() && y == r.getY()) {
+                return true;
+            }
         }
         return false;
     }

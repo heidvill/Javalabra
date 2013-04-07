@@ -22,7 +22,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-  
+
     <build>
         <plugins>
             <plugin>
@@ -50,11 +50,10 @@
                     <archive>
                         <manifest>
                             <mainClass>com.mycompany.tetris.App</mainClass>
-                         
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
+            </plugin>     
         </plugins>
 
     </build>

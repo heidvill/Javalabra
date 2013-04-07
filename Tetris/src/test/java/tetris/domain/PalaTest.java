@@ -16,8 +16,6 @@ public class PalaTest {
     @Before
     public void setUp() {
         oPala = new OPala(20, 30);
-        oPala.liiku();
-
     }
 
     @After
@@ -26,13 +24,14 @@ public class PalaTest {
 
     @Test
     public void uudenPalanKoordinaatitOikein() {
-        assertEquals(2, oPala.getRuudut().size());
-        assertEquals("[(10,0), (9,0)]", oPala.toString());
+        assertEquals(4, oPala.getRuudut().size());
+        assertEquals("[(10,0), (9,0), (10,-1), (9,-1)]", oPala.toString());
     }
 
     @Test
     public void palaLiikkuuAlaspainOikein() {
         oPala.liiku();
+        
         assertEquals(4, oPala.getRuudut().size());
         assertEquals("[(10,1), (9,1), (10,0), (9,0)]", oPala.toString());
 

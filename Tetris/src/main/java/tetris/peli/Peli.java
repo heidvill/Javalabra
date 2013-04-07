@@ -47,15 +47,14 @@ public class Peli extends Timer implements ActionListener {
 //        }
         pala.liiku();
         pala.osuuAlasRuutuun(palasailio);
-        etsiTaysiaRiveja();
         if (!pala.isLiikkeessa()) {
             palasailio.lisaaPala(pala);
             pala = palasailio.getUusiPala(random.nextInt(7));
         }
-
+        etsiTaysiaRiveja();
         alusta.paivita();
 //        setDelay(1000 / pala.getPituus());
-        setDelay(500);
+        setDelay(400);
     }
 
     public Pala getPala() {
@@ -75,10 +74,14 @@ public class Peli extends Timer implements ActionListener {
                     ruutuja++;
                 }
             }
-            if(ruutuja==leveys){
+            if (ruutuja == leveys) {
                 taydetRivit.add(rivi);
             }
         }
         palasailio.poistaTaydetRivit(taydetRivit);
+    }
+
+    public int getLeveys() {
+        return leveys;
     }
 }

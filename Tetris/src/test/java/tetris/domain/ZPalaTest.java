@@ -15,8 +15,6 @@ public class ZPalaTest {
     @Before
     public void setUp() {
         pala = new ZPala(20, 30);
-        pala.liiku();
-        pala.liiku();
     }
 
     @After
@@ -25,6 +23,7 @@ public class ZPalaTest {
 
     @Test
     public void palaKaantyyOikein() {
+        pala.liiku();
         pala.kierraOikealle();
         assertEquals("[(10,1), (10,2), (11,0), (11,1)]", pala.toString());
 
