@@ -3,6 +3,7 @@ package tetris.gui;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -36,9 +37,6 @@ public class Kayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
         container.add(alusta);
-        JLabel testi = new JLabel("pisteet");
-        testi.setPreferredSize(new Dimension(150, 440));
-        container.add(testi, BorderLayout.EAST);
         frame.addKeyListener(new Nappaimistonkuuntelija(peli));
     }
 
