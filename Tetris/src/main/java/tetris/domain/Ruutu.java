@@ -40,7 +40,7 @@ public class Ruutu {
         this.y = y;
     }
 
-    public boolean osuuAlas(ArrayList<Ruutu> ruudut) {
+    public boolean osuuAlasRuutuun(ArrayList<Ruutu> ruudut) {
         for (Ruutu r : ruudut) {
             if (y + 1 == r.getY() && x == r.getX()) {
                 return true;
@@ -58,32 +58,9 @@ public class Ruutu {
         return false;
     }
 
-    public boolean osuuVasemmalleRuutuun(Ruutu r) {
-        if (x - 1 == r.getX() && y == r.getY()) {
-            return true;
-        }
-        return false;
-    }
-
     public boolean osuuOikealleRuutuun(ArrayList<Ruutu> ruudut) {
         for (Ruutu r : ruudut) {
             if (x + 1 == r.getX() && y == r.getY()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean osuuOikealleRuutuun(Ruutu r) {
-        if (x + 1 == r.getX() && y == r.getY()) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean onPaallekkainRuudunKanssa(ArrayList<Ruutu> ruudut) {
-        for (Ruutu r : ruudut) {
-            if (x == r.getX() && y == r.getY()) {
                 return true;
             }
         }

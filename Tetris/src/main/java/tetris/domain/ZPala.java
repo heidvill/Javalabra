@@ -15,9 +15,6 @@ public class ZPala extends Pala {
     @Override
     public void kierraOikealle() {
         if (kaannos == 2) {
-//            if (r1.getX() == 0) {
-//                return;
-//            }
             kaannos = 1;
             r2.setXY(r4.getX(), r4.getY());
             r4.setXY(r4.getX() - 1, r4.getY() - 1);

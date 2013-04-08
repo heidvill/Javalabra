@@ -70,7 +70,7 @@ public abstract class Pala {
         }
     }
 
-    public boolean osuuVasemmalle(Palasailio sailio) {
+    public boolean osuuVasemmalleRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.osuuVasemmalleRuutuun(sailio.getRuudut())) {
                 return true;
@@ -90,7 +90,7 @@ public abstract class Pala {
 
     public boolean osuuAlasRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
-            if (ruutu.osuuAlas(sailio.getRuudut())) {
+            if (ruutu.osuuAlasRuutuun(sailio.getRuudut())) {
                 liikkeessa = false;
                 return true;
             }
@@ -122,10 +122,6 @@ public abstract class Pala {
     public Color getVari() {
         return vari;
     }
-//
-//    public boolean onkoNeljaPalaa() {
-//        return ruudut.size() == 4;
-//    }
 
     public abstract void kierraOikealle();
 
@@ -163,5 +159,4 @@ public abstract class Pala {
     public Palatyyppi getTyyppi() {
         return tyyppi;
     }
-    
 }
