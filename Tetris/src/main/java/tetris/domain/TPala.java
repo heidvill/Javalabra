@@ -31,7 +31,6 @@ public class TPala extends Pala {
         }
     }
 
-   // @Override
     private void lisaaRuudut() {
         r1 = new Ruutu(leveys / 2 - 1, 0, vari);
         r2 = new Ruutu(leveys / 2, 0, vari);

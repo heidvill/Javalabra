@@ -122,14 +122,13 @@ public abstract class Pala {
     public Color getVari() {
         return vari;
     }
-
-    public boolean onkoNeljaPalaa() {
-        return ruudut.size() == 4;
-    }
+//
+//    public boolean onkoNeljaPalaa() {
+//        return ruudut.size() == 4;
+//    }
 
     public abstract void kierraOikealle();
 
-   // public abstract void lisaaRuudut();
 
     public boolean onkoOikeassaReunassa() {
         //jos ollaan jo reunassa

@@ -4,6 +4,7 @@ import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import tetris.Palatyyppi;
 import tetris.Suunta;
 
 public class PalaTest {
@@ -25,6 +26,7 @@ public class PalaTest {
     @Test
     public void uudenPalanKoordinaatitOikein() {
         assertEquals(4, oPala.getRuudut().size());
+        assertEquals(Palatyyppi.O, oPala.tyyppi);
         assertEquals("[(10,0), (9,0), (10,-1), (9,-1)]", oPala.toString());
     }
 

@@ -15,13 +15,11 @@ public class IPala extends Pala {
     @Override
     public void kierraOikealle() {
         if (kaannos == 1) { //käännetään vaakasuuntaan
-            if (!onkoOikeassaReunassa() && !onkoVasemmassaReunassa()) {
-                kaannos = 2;
-                int sarake = -1;
-                for (Ruutu ruutu : ruudut) {
-                    ruutu.setXY(ruutu.getX() + sarake, r2.getY());
-                    sarake++;
-                }
+            kaannos = 2;
+            int sarake = -1;
+            for (Ruutu ruutu : ruudut) {
+                ruutu.setXY(ruutu.getX() + sarake, r2.getY());
+                sarake++;
             }
         } else { //käännetään pystyyn
             kaannos = 1;

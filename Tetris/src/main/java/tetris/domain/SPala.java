@@ -16,7 +16,6 @@ public class SPala extends Pala {
     public void kierraOikealle() {
         if (kaannos == 1) {
             kaannos = 2;
-            //tarkista osuuko oikealle
             r4.setXY(r2.getX(), r2.getY());
             r1.setY(r1.getY() - 2);
             r2.setXY(r2.getX() - 1, r2.getY() - 1);
@@ -24,12 +23,10 @@ public class SPala extends Pala {
             kaannos = 1;
             r1.setY(r1.getY() + 2);
             r2.setXY(r4.getX(), r4.getY());
-            // tarkista osuuko alapuolelle!
             r4.setXY(r4.getX() + 1, r4.getY() - 1);
         }
     }
 
-    //@Override
     private void lisaaRuudut() {
         r1 = new Ruutu(leveys / 2 - 1, 0, vari);
         r2 = new Ruutu(leveys / 2, 0, vari);
