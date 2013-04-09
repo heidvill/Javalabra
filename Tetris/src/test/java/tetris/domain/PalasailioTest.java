@@ -1,10 +1,9 @@
 package tetris.domain;
 
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import tetris.Palatyyppi;
 
 public class PalasailioTest {
 
@@ -34,7 +33,6 @@ public class PalasailioTest {
 
     @Test
     public void palauttaaUudenPalanOikein() {
-
         Pala uusiPala = sailio.getUusiPala();
         assertEquals(4, uusiPala.getRuudut().size());
     }
