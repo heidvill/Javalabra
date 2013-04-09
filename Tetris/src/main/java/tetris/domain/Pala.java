@@ -113,7 +113,7 @@ public abstract class Pala {
     /**
      * Tarkistaa osuuko pala alapuolella oleviin pysähtyneiden palojen ruutuihin
      * 
-     * Jos pala osuu, niin asetetaan liikkeessä falseksi.
+     * Jos pala osuu, niin asetetaan liikkeessä-attribuutin arvoksi false.
      * 
      * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
      * @return True, jos pala osuu, muuten False
