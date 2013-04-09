@@ -8,10 +8,9 @@ import tetris.peli.Peli;
 
 /**
  * Tetriksen käyttöliittymä
- * 
+ *
  * @author heidvill
  */
-
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;

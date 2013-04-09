@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Palasäiliö säilyttää alas pudonneet palat ja palauttaa uuden satunnaisen palan kun edellinen pala pysähtyy
- * 
+ * Palasäiliö säilyttää alas pudonneet palat ja palauttaa uuden satunnaisen
+ * palan kun edellinen pala ei voi liikkua enää alaspäin.
+ *
  * @author heidvill
  */
-
 public class Palasailio {
 
     private ArrayList<Ruutu> ruudut;
@@ -21,6 +21,11 @@ public class Palasailio {
         this.korkeus = korkeus;
     }
 
+    /**
+     * Lisää parametrina annetun palan palasäiliöön.
+     *
+     * @param pala, säiliöön lisättävä pala
+     */
     public void lisaaPala(Pala pala) {
         for (Ruutu ruutu : pala.getRuudut()) {
             ruudut.add(ruutu);
@@ -31,6 +36,11 @@ public class Palasailio {
         return ruudut;
     }
 
+    /**
+     * Palauttaa uuden satunnaisen palan peliin.
+     *
+     * @return uusi satunnainen pala
+     */
     public Pala getUusiPala() {
         int luku = new Random().nextInt(7);
         if (luku == 0) {
@@ -58,6 +68,13 @@ public class Palasailio {
         return ruudut.size();
     }
 
+    /**
+     * Etsii täysillä riveillä olevat ruudut ja poistaa ne säiliöstä.
+     *
+     * Jos täysiä rivejä ei ole yhtään, metodi ei tee mitään.
+     *
+     * @param taydetRivit, sisältää täysien rivien y-koordinaattien arvot
+     */
     public void poistaTaydetRivit(ArrayList<Integer> taydetRivit) {
         if (taydetRivit.isEmpty()) {
             return;

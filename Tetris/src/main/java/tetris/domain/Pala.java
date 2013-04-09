@@ -35,7 +35,8 @@ public abstract class Pala {
     }
 
     /**
-     * Liikuttaa palaa suunnan määräämään suuntaan alas, oikealle tai vasemmalle
+     * Liikuttaa palaa suunnan määräämään suuntaan alas, oikealle tai
+     * vasemmalle.
      */
     public void liiku() {
         if (suunta == Suunta.VASEN) {
@@ -80,7 +81,7 @@ public abstract class Pala {
 
     /**
      * Tarkistaa osuuko pala vasemmalla puolella oleviin pysähtyneiden palojen
-     * ruutuihin
+     * ruutuihin.
      *
      * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
      * @return True, jos pala osuu toi, muuten False
@@ -96,7 +97,7 @@ public abstract class Pala {
 
     /**
      * Tarkistaa osuuko pala oikealla puolella oleviin pysähtyneiden palojen
-     * ruutuihin
+     * ruutuihin.
      *
      * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
      * @return True, jos pala osuu, muuten False
@@ -111,10 +112,12 @@ public abstract class Pala {
     }
 
     /**
-     * Tarkistaa osuuko pala alapuolella oleviin pysähtyneiden palojen ruutuihin
-     * 
-     * Jos pala osuu, niin asetetaan liikkeessä-attribuutin arvoksi false.
-     * 
+     * Tarkistaa osuuko pala alapuolella oleviin pysähtyneiden palojen
+     * ruutuihin.
+     *
+     * Jos pala osuu toiseen ruutuun, niin asetetaan liikkeessä-attribuutin
+     * arvoksi false.
+     *
      * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
      * @return True, jos pala osuu, muuten False
      */
@@ -132,7 +135,7 @@ public abstract class Pala {
     public String toString() {
         return ruudut.toString();
     }
-    
+
     public boolean isLiikkeessa() {
         return liikkeessa;
     }
@@ -156,8 +159,8 @@ public abstract class Pala {
     public abstract void kierraOikealle();
 
     /**
-     * Tarkistaa onko pala oikeassa reunassa
-     * 
+     * Tarkistaa onko pala oikeassa reunassa.
+     *
      * @return True, jos pala on oikeassa reunassa, muuten False
      */
     public boolean onkoOikeassaReunassa() {
@@ -171,6 +174,11 @@ public abstract class Pala {
         return false;
     }
 
+    /**
+     * Tarkistaa onko pala vasemmassa reunassa.
+     *
+     * @return True, jos pala on vasemmassa reunassa, muuten False
+     */
     public boolean onkoVasemmassaReunassa() {
         //jos ollaan jo reunassa
         for (Ruutu ruutu : ruudut) {

@@ -28,7 +28,7 @@ public class SPalaTest {
 
     @Test
     public void palaKaantyyOikein() {
-        
+
         pala.liiku();
         pala.liiku();
         pala.kierraOikealle();

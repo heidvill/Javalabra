@@ -5,11 +5,10 @@ import tetris.Palatyyppi;
 
 /**
  * Z:n muotoinen pala, joka perii Pala-luokan
- * 
+ *
  * @see Pala
  * @author heidvill
  */
-
 public class ZPala extends Pala {
 
     public ZPala(int leveys, int korkeus) {
@@ -35,13 +34,13 @@ public class ZPala extends Pala {
     }
 
     private void lisaaRuudut() {
-            r1 = new Ruutu(leveys / 2, 0, vari);
-            r2 = new Ruutu(leveys / 2 + 1, 0, vari);
-            r3 = new Ruutu(leveys / 2 - 1, -1, vari);
-            r4 = new Ruutu(leveys / 2, -1, vari);
-            ruudut.add(r1);
-            ruudut.add(r2);
-            ruudut.add(r3);
-            ruudut.add(r4);
+        r1 = new Ruutu(leveys / 2, 0, vari);
+        r2 = new Ruutu(leveys / 2 + 1, 0, vari);
+        r3 = new Ruutu(leveys / 2 - 1, -1, vari);
+        r4 = new Ruutu(leveys / 2, -1, vari);
+        ruudut.add(r1);
+        ruudut.add(r2);
+        ruudut.add(r3);
+        ruudut.add(r4);
     }
 }

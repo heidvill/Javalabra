@@ -3,7 +3,6 @@ package tetris.peli;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 import javax.swing.Timer;
 import tetris.domain.Pala;
 import tetris.domain.Palasailio;
@@ -12,12 +11,12 @@ import tetris.gui.Paivitettava;
 
 /**
  * Peli-luokka kokoaa tetriksen kokonaisuudeksi.
- * 
- * Peli liikuttaa palaa ja tarkistaa tuleeko täysiä rivejä, jotka pitäisi poistaa.
- * 
+ *
+ * Peli liikuttaa palaa ja tarkistaa tuleeko täysiä rivejä, jotka pitäisi
+ * poistaa.
+ *
  * @author heidvill
  */
-
 public class Peli extends Timer implements ActionListener {
 
     private boolean jatkuu;
@@ -71,6 +70,10 @@ public class Peli extends Timer implements ActionListener {
         return palasailio;
     }
 
+    /**
+     * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne palasäiliöstä.
+     * 
+     */
     public void etsiTaysiaRiveja() {
         ArrayList<Integer> taydetRivit = new ArrayList<Integer>();
         for (int rivi = 0; rivi < korkeus; rivi++) {
@@ -89,9 +92,5 @@ public class Peli extends Timer implements ActionListener {
 
     public int getLeveys() {
         return leveys;
-    }
-
-    public int getKorkeus() {
-        return korkeus;
     }
 }

@@ -9,9 +9,9 @@ import tetris.peli.Peli;
 /**
  * Piirtoalusta piirtää taustan, liikkuvan palan ja pysähtyneet palat sekä
  * pisteet, räjäytetyt rivit ja seuraavan palan
+ *
  * @author heidvill
  */
-
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Peli peli;
@@ -26,7 +26,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
+
         g.setColor(Color.WHITE);
         g.fill3DRect(0, 0, 240, 400, true);
 

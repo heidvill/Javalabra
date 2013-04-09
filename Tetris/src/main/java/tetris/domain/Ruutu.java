@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 /**
  * Ruutu on palan osa.
- * 
+ *
  * Pala muodostuu neljästä ruudusta.
- * 
+ *
  * @see Pala
  * @author heidvill
  */
-
 public class Ruutu {
 
     private int x;
@@ -49,6 +48,13 @@ public class Ruutu {
         this.y = y;
     }
 
+    /**
+     * Tarkistaa osuisiko ruutu seuraavalla alas liikkumisella parametrina
+     * saataviin ruutuihin.
+     *
+     * @param ruudut, ruudut joihin tämän ruudun koordinaatteja verrataan
+     * @return True, jos ruutu osuisi johonkin toiseen ruutuun, muuten False
+     */
     public boolean osuuAlasRuutuun(ArrayList<Ruutu> ruudut) {
         for (Ruutu r : ruudut) {
             if (y + 1 == r.getY() && x == r.getX()) {
@@ -58,6 +64,13 @@ public class Ruutu {
         return false;
     }
 
+    /**
+     * Tarkistaa osuisiko ruutu seuraavalla vasemmalle liikkumisella parametrina
+     * saataviin ruutuihin.
+     *
+     * @param ruudut, ruudut joihin tämän ruudun koordinaatteja verrataan
+     * @return True, jos ruutu osuisi johonkin toiseen ruutuun, muuten False
+     */
     public boolean osuuVasemmalleRuutuun(ArrayList<Ruutu> ruudut) {
         for (Ruutu r : ruudut) {
             if (x - 1 == r.getX() && y == r.getY()) {
@@ -67,6 +80,13 @@ public class Ruutu {
         return false;
     }
 
+    /**
+     * Tarkistaa osuisiko ruutu seuraavalla oikealle liikkumisella parametrina
+     * saataviin ruutuihin.
+     *
+     * @param ruudut, ruudut joihin tämän ruudun koordinaatteja verrataan
+     * @return True, jos ruutu osuisi johonkin toiseen ruutuun, muuten False
+     */
     public boolean osuuOikealleRuutuun(ArrayList<Ruutu> ruudut) {
         for (Ruutu r : ruudut) {
             if (x + 1 == r.getX() && y == r.getY()) {

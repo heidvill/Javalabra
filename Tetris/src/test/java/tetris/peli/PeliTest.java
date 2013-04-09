@@ -75,28 +75,27 @@ public class PeliTest {
         Pala pala = palaMelkeinAlhaalla();
         pala.liiku();
         assertTrue(!pala.osuuVasemmalleRuutuun(sailio));
-        
+
         pala.liiku();
         assertTrue(pala.osuuVasemmalleRuutuun(sailio));
     }
-    
+
     @Test
-    public void palaEiLiikuToisenPalanPaalleYlhaalta(){
+    public void palaEiLiikuToisenPalanPaalleYlhaalta() {
         Palasailio sailio = peli.getPalasailio();
         sailio.lisaaPala(palaOikeaanReunaan());
         sailio.lisaaPala(palaVasempaanReunaan());
 
         Pala pala = palaMelkeinAlhaalla();
-        
+
         pala.liiku();
         assertTrue(!pala.osuuAlasRuutuun(sailio));
-        
+
         pala.setSuunta(Suunta.VASEN);
         pala.liiku();
         assertTrue(pala.osuuAlasRuutuun(sailio));
     }
-    
-    
+
     private Pala palaOikeaanReunaan() {
         Pala pala3 = new OPala(10, 5);
 

@@ -21,8 +21,6 @@ public class IPalaTest {
     @After
     public void tearDown() {
     }
-    
-    
 
     @Test
     public void palaKaantyyOikein() {

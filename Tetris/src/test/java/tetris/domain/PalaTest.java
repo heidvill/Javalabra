@@ -33,7 +33,7 @@ public class PalaTest {
     @Test
     public void palaLiikkuuAlaspainOikein() {
         oPala.liiku();
-        
+
         assertEquals(4, oPala.getRuudut().size());
         assertEquals("[(10,1), (9,1), (10,0), (9,0)]", oPala.toString());
 

@@ -5,11 +5,10 @@ import tetris.Palatyyppi;
 
 /**
  * I:n muotoinen pala, joka perii Pala-luokan.
- * 
+ *
  * @see Pala
  * @author heidvill
  */
-
 public class IPala extends Pala {
 
     public IPala(int leveys, int korkeus) {

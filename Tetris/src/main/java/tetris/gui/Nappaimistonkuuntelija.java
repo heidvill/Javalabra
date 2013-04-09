@@ -8,11 +8,11 @@ import tetris.domain.*;
 import tetris.peli.Peli;
 
 /**
- * Tetriksen näppäimistönkuuntelija tekee käyttäjän näppäimen painalluksen mukaisen toiminnon
- * 
+ * Tetriksen näppäimistönkuuntelija tekee käyttäjän näppäimen painalluksen
+ * mukaisen toiminnon
+ *
  * @author heidvill
  */
-
 public class Nappaimistonkuuntelija implements KeyListener {
 
     private Peli peli;
@@ -80,6 +80,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
         return kopio;
     }
 
+    /**
+     * Tarkistaa voiko palaa kääntää oikealle
+     * 
+     * @param peli peli, jonka liikkuvaa ja pysähtyneitä paloja tarkastellaan
+     * @return True, jos palaa voi kääntää, jos pala menee alueen ulkopuolelle tai osuu muihin paloihin, palautetaan False
+     */
     public boolean voikoKaantaa(Peli peli) {
         Pala kopio = kopioiPala(peli);
         kopio.kierraOikealle();
