@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import tetris.Palatyyppi;
 import tetris.Suunta;
 
+/**
+ * Tetriksen palan abstraktiluokka, jonka muut palat perivät.
+ *
+ * @author heidvill
+ */
 public abstract class Pala {
 
     protected ArrayList<Ruutu> ruudut;
@@ -29,6 +34,9 @@ public abstract class Pala {
         liikkeessa = true;
     }
 
+    /**
+     * Liikuttaa palaa suunnan määräämään suuntaan alas, oikealle tai vasemmalle
+     */
     public void liiku() {
         if (suunta == Suunta.VASEN) {
             liikuVasemmalle();
@@ -70,6 +78,13 @@ public abstract class Pala {
         }
     }
 
+    /**
+     * Tarkistaa osuuko pala vasemmalla puolella oleviin pysähtyneiden palojen
+     * ruutuihin
+     *
+     * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
+     * @return True, jos pala osuu toi, muuten False
+     */
     public boolean osuuVasemmalleRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.osuuVasemmalleRuutuun(sailio.getRuudut())) {
@@ -79,6 +94,13 @@ public abstract class Pala {
         return false;
     }
 
+    /**
+     * Tarkistaa osuuko pala oikealla puolella oleviin pysähtyneiden palojen
+     * ruutuihin
+     *
+     * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
+     * @return True, jos pala osuu, muuten False
+     */
     public boolean osuuOikealleRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.osuuOikealleRuutuun(sailio.getRuudut())) {
@@ -88,6 +110,14 @@ public abstract class Pala {
         return false;
     }
 
+    /**
+     * Tarkistaa osuuko pala alapuolella oleviin pysähtyneiden palojen ruutuihin
+     * 
+     * Jos pala osuu, niin asetetaan liikkeessä falseksi.
+     * 
+     * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
+     * @return True, jos pala osuu, muuten False
+     */
     public boolean osuuAlasRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.osuuAlasRuutuun(sailio.getRuudut())) {
@@ -102,7 +132,7 @@ public abstract class Pala {
     public String toString() {
         return ruudut.toString();
     }
-
+    
     public boolean isLiikkeessa() {
         return liikkeessa;
     }
@@ -125,7 +155,11 @@ public abstract class Pala {
 
     public abstract void kierraOikealle();
 
-
+    /**
+     * Tarkistaa onko pala oikeassa reunassa
+     * 
+     * @return True, jos pala on oikeassa reunassa, muuten False
+     */
     public boolean onkoOikeassaReunassa() {
         //jos ollaan jo reunassa
         for (Ruutu ruutu : ruudut) {

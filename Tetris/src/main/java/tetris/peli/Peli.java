@@ -10,13 +10,20 @@ import tetris.domain.Palasailio;
 import tetris.domain.Ruutu;
 import tetris.gui.Paivitettava;
 
+/**
+ * Peli-luokka kokoaa tetriksen kokonaisuudeksi.
+ * 
+ * Peli liikuttaa palaa ja tarkistaa tuleeko täysiä rivejä, jotka pitäisi poistaa.
+ * 
+ * @author heidvill
+ */
+
 public class Peli extends Timer implements ActionListener {
 
     private boolean jatkuu;
     private Paivitettava alusta;
     private Pala pala;
     private Palasailio palasailio;
-    private Random random;
     private int leveys;
     private int korkeus;
 
@@ -26,8 +33,7 @@ public class Peli extends Timer implements ActionListener {
         this.jatkuu = true;
         addActionListener(this);
         setInitialDelay(2000);
-        this.random = new Random();
-        this.pala = palasailio.getUusiPala(random.nextInt(7));
+        this.pala = palasailio.getUusiPala();
         this.korkeus = korkeus;
         this.leveys = leveys;
     }
@@ -49,7 +55,7 @@ public class Peli extends Timer implements ActionListener {
         pala.osuuAlasRuutuun(palasailio);
         if (!pala.isLiikkeessa()) {
             palasailio.lisaaPala(pala);
-            pala = palasailio.getUusiPala(random.nextInt(7));
+            pala = palasailio.getUusiPala();
         }
         etsiTaysiaRiveja();
         alusta.paivita();
@@ -83,5 +89,9 @@ public class Peli extends Timer implements ActionListener {
 
     public int getLeveys() {
         return leveys;
+    }
+
+    public int getKorkeus() {
+        return korkeus;
     }
 }

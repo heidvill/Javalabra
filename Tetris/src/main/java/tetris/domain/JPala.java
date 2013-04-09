@@ -3,6 +3,13 @@ package tetris.domain;
 import java.awt.Color;
 import tetris.Palatyyppi;
 
+/**
+ * J:n muotoinen pala, joka perii Pala-luokan
+ * 
+ * @see Pala
+ * @author heidvill
+ */
+
 public class JPala extends Pala {
 
     public JPala(int leveys, int korkeus) {

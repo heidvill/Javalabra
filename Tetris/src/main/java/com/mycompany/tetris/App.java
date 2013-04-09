@@ -7,7 +7,7 @@ import tetris.peli.Peli;
 public class App {
 
     public static void main(String[] args) {
-        Peli tetris = new Peli(12, 20);
+        Peli tetris = new Peli(10, 20);
 
         Kayttoliittyma kali = new Kayttoliittyma(tetris, 20);
         SwingUtilities.invokeLater(kali);

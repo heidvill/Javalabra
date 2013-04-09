@@ -4,16 +4,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import tetris.Palatyyppi;
 import tetris.Suunta;
-import tetris.domain.IPala;
-import tetris.domain.JPala;
-import tetris.domain.LPala;
-import tetris.domain.OPala;
-import tetris.domain.Pala;
-import tetris.domain.Ruutu;
-import tetris.domain.SPala;
-import tetris.domain.TPala;
-import tetris.domain.ZPala;
+import tetris.domain.*;
 import tetris.peli.Peli;
+
+/**
+ * Tetriksen näppäimistönkuuntelija tekee käyttäjän näppäimen painalluksen mukaisen toiminnon
+ * 
+ * @author heidvill
+ */
 
 public class Nappaimistonkuuntelija implements KeyListener {
 

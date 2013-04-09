@@ -3,6 +3,13 @@ package tetris.domain;
 import java.awt.Color;
 import tetris.Palatyyppi;
 
+/**
+ * Z:n muotoinen pala, joka perii Pala-luokan
+ * 
+ * @see Pala
+ * @author heidvill
+ */
+
 public class ZPala extends Pala {
 
     public ZPala(int leveys, int korkeus) {

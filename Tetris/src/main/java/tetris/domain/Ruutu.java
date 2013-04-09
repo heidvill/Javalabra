@@ -3,6 +3,15 @@ package tetris.domain;
 import java.awt.Color;
 import java.util.ArrayList;
 
+/**
+ * Ruutu on palan osa.
+ * 
+ * Pala muodostuu neljästä ruudusta.
+ * 
+ * @see Pala
+ * @author heidvill
+ */
+
 public class Ruutu {
 
     private int x;

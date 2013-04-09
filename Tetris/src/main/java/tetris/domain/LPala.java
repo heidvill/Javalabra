@@ -3,6 +3,13 @@ package tetris.domain;
 import java.awt.Color;
 import tetris.Palatyyppi;
 
+/**
+ * L:n muotoinen pala, joka perii Pala-luokan
+ * 
+ * @see Pala
+ * @author heidvill
+ */
+
 public class LPala extends Pala {
 
     public LPala(int leveys, int korkeus) {

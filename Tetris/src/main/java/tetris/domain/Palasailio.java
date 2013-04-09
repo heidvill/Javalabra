@@ -1,6 +1,13 @@
 package tetris.domain;
 
 import java.util.ArrayList;
+import java.util.Random;
+
+/**
+ * Palasäiliö säilyttää alas pudonneet palat ja palauttaa uuden satunnaisen palan kun edellinen pala pysähtyy
+ * 
+ * @author heidvill
+ */
 
 public class Palasailio {
 
@@ -24,7 +31,8 @@ public class Palasailio {
         return ruudut;
     }
 
-    public Pala getUusiPala(int luku) {
+    public Pala getUusiPala() {
+        int luku = new Random().nextInt(7);
         if (luku == 0) {
             return new IPala(leveys, korkeus);
         }

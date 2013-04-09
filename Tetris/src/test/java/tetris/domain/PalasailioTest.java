@@ -25,7 +25,7 @@ public class PalasailioTest {
      @Test
      public void lisaaPalatOikein() {
          assertEquals(0, sailio.sailionKoko());
-         assertEquals(4, sailio.getUusiPala(0).getRuudut().size());
+         assertEquals(4, sailio.getUusiPala().getRuudut().size());
          
          Pala oPala = new OPala(10, 5);
          sailio.lisaaPala(oPala);
@@ -34,9 +34,8 @@ public class PalasailioTest {
      
      @Test
      public void palauttaaUudenPalanOikein(){
-         for (int i = 0; i < 7; i++) {
-             Pala uusiPala = sailio.getUusiPala(i);
-             assertEquals(Palatyyppi.values()[i], uusiPala.getTyyppi());             
-         }
+
+             Pala uusiPala = sailio.getUusiPala();
+             assertEquals(4, uusiPala.getRuudut().size());             
      }
 }
