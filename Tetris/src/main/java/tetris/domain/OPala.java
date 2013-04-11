@@ -22,6 +22,9 @@ public class OPala extends Pala {
     public void kierraOikealle() {
     }
 
+    /**
+     * Luo ruudut palaan oikeisiin koordinaatteihin
+     */
     private void lisaaRuudut() {
         for (int i = 0; i > -2; i--) {
             ruudut.add(new Ruutu(leveys / 2, i, vari));
