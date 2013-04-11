@@ -48,6 +48,9 @@ public abstract class Pala {
         }
     }
 
+    /**
+     * Jos palan mikään ruuduista ei ole pelialueen vasemmassa reunassa, niin siirretään palan kaikkia ruutuja yksi askel vasemmalle.
+     */
     private void liikuVasemmalle() {
         suunta = Suunta.ALAS;
         if (!onkoVasemmassaReunassa()) {
@@ -57,6 +60,9 @@ public abstract class Pala {
         }
     }
 
+    /**
+     * Jos palan mikään ruuduista ei ole pelialueen oikeassa reunassa, niin siirretään palan kaikkia ruutuja yksi askel oikealle.
+     */
     private void liikuOikealle() {
         suunta = Suunta.ALAS;
         if (!onkoOikeassaReunassa()) {
@@ -66,6 +72,10 @@ public abstract class Pala {
         }
     }
 
+    /**
+     * Jos mikään palan ruuduista ei ole pelialueen pohjalla, niin siirretään palan kaikkia ruutuja yksi askel alaspäin.
+     * Jos jokin pala on pohjalla asetetaan liikkeessä-attribuutille arvo false.
+     */
     private void liikuAlas() {
         //jos ollaan jo pohjalla
         for (Ruutu ruutu : ruudut) {

@@ -94,7 +94,7 @@ public class Palasailio {
         ruudut.removeAll(poistettavat);
         laskeYlempiaRiveja(ylin, taydetRivit.size());
     }
-
+    
     private void laskeYlempiaRiveja(int ylaraja, int paljonLasketaan) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getY() < ylaraja) {
