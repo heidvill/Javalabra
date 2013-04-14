@@ -2,6 +2,7 @@ package tetris.domain;
 
 import java.util.ArrayList;
 import java.util.Random;
+import tetris.Palatyyppi;
 
 /**
  * Palasäiliö säilyttää alas pudonneet palat ja palauttaa uuden satunnaisen
@@ -64,6 +65,24 @@ public class Palasailio {
         return new ZPala(leveys, korkeus);
     }
 
+    public Pala kopioiSeuraavaPala(Palatyyppi tyyppi) {
+        if (tyyppi == Palatyyppi.I) {
+            return new IPala(leveys, korkeus);
+        } else if (tyyppi == Palatyyppi.J) {
+            return new JPala(leveys, korkeus);
+        } else if (tyyppi == Palatyyppi.L) {
+            return new LPala(leveys, korkeus);
+        } else if (tyyppi == Palatyyppi.O) {
+            return new OPala(leveys, korkeus);
+        } else if (tyyppi == Palatyyppi.S) {
+            return new SPala(leveys, korkeus);
+        } else if (tyyppi == Palatyyppi.T) {
+            return new TPala(leveys, korkeus);
+        } else {
+            return new ZPala(leveys, korkeus);
+        }
+    }
+
     public int sailionKoko() {
         return ruudut.size();
     }
@@ -94,7 +113,7 @@ public class Palasailio {
         ruudut.removeAll(poistettavat);
         laskeYlempiaRiveja(ylin, taydetRivit.size());
     }
-    
+
     private void laskeYlempiaRiveja(int ylaraja, int paljonLasketaan) {
         for (Ruutu ruutu : ruudut) {
             if (ruutu.getY() < ylaraja) {

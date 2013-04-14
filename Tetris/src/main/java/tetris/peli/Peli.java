@@ -25,6 +25,8 @@ public class Peli extends Timer implements ActionListener {
     private Palasailio palasailio;
     private int leveys;
     private int korkeus;
+    private Pistelaskuri laskuri;
+    private Pala seuraavaPala;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
@@ -33,8 +35,11 @@ public class Peli extends Timer implements ActionListener {
         addActionListener(this);
         setInitialDelay(2000);
         this.pala = palasailio.getUusiPala();
+        seuraavaPala = palasailio.getUusiPala();
         this.korkeus = korkeus;
         this.leveys = leveys;
+        laskuri = new Pistelaskuri();
+        siirraSeuraavaPalaOikeaanPaikkaan();
     }
 
     public boolean jatkuu() {
@@ -54,12 +59,15 @@ public class Peli extends Timer implements ActionListener {
         pala.osuuAlasRuutuun(palasailio);
         if (!pala.isLiikkeessa()) {
             palasailio.lisaaPala(pala);
-            pala = palasailio.getUusiPala();
+            pala = palasailio.kopioiSeuraavaPala(seuraavaPala.getTyyppi());
+            seuraavaPala = palasailio.getUusiPala();
+            siirraSeuraavaPalaOikeaanPaikkaan();
+            laskuri.kasvataPisteitaPalalla();
         }
         etsiTaysiaRiveja();
         alusta.paivita();
 //        setDelay(1000 / pala.getPituus());
-        setDelay(400);
+        setDelay(400 / (laskuri.getTasot() + 1));
     }
 
     public Pala getPala() {
@@ -71,8 +79,9 @@ public class Peli extends Timer implements ActionListener {
     }
 
     /**
-     * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne palasäiliöstä.
-     * 
+     * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne
+     * palasäiliöstä.
+     *
      */
     public void etsiTaysiaRiveja() {
         ArrayList<Integer> taydetRivit = new ArrayList<Integer>();
@@ -87,10 +96,30 @@ public class Peli extends Timer implements ActionListener {
                 taydetRivit.add(rivi);
             }
         }
+        laskuri.kasvataPisteitaRiveilla(taydetRivit.size());
         palasailio.poistaTaydetRivit(taydetRivit);
     }
 
     public int getLeveys() {
         return leveys;
+    }
+
+    public Pala getSeuraavaPala() {
+        return seuraavaPala;
+    }
+
+    public int getPisteet() {
+        return laskuri.getPisteet();
+    }
+
+    public int getTasot() {
+        return laskuri.getTasot();
+    }
+
+    private void siirraSeuraavaPalaOikeaanPaikkaan() {
+        for (Ruutu ruutu : seuraavaPala.getRuudut()) {
+            ruutu.setX(ruutu.getX() + 8);
+            ruutu.setY(ruutu.getY() + 9);
+        }
     }
 }

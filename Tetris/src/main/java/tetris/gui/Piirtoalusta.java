@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import tetris.domain.Ruutu;
 import tetris.peli.Peli;
+import tetris.domain.Pala;
 
 /**
  * Piirtoalusta piirtää taustan, liikkuvan palan ja pysähtyneet palat sekä
@@ -41,9 +42,34 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         }
 
         g.setColor(Color.WHITE);
-        g.drawString("Pisteet", 250, 15);
-        g.drawString("Rivejä", 250, 72);
+        g.drawString("Taso", 250, 15);
+        g.drawString("" + peli.getTasot(), 250, 32);
+        
+        g.drawString("Pisteet", 250, 72);
+        g.drawString("" + peli.getPisteet(), 250, 95);
+        
         g.drawString("Seuraava pala", 250, 130);
+        
+//        Pala seuraava = peli.getSeuraavaPala();
+//        for (Ruutu ruutu : seuraava.getRuudut()) {
+//            ruutu.setX(ruutu.getX()+8);
+//            ruutu.setY(ruutu.getY()+10);
+//        }
+//     
+//        g.setColor(seuraava.getVari());
+//        for (Ruutu r : seuraava.getRuudut()) {
+//            g.fill3DRect(r.getX() * palanSivunPituus, r.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
+//        }
+        
+//        for (Ruutu ruutu : peli.getSeuraavaPala().getRuudut()) {
+//            ruutu.setX(ruutu.getX()+8);
+//            ruutu.setY(ruutu.getY()+10);
+//        }
+     
+        g.setColor(peli.getSeuraavaPala().getVari());
+        for (Ruutu r : peli.getSeuraavaPala().getRuudut()) {
+            g.fill3DRect(r.getX() * palanSivunPituus, r.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
+        }
     }
 
     @Override

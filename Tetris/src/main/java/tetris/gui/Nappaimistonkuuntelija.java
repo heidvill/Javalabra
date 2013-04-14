@@ -99,7 +99,6 @@ public class Nappaimistonkuuntelija implements KeyListener {
         if (kopio.osuuAlasRuutuun(peli.getPalasailio())) {
             return false;
         }
-
         return true;
     }
 }
