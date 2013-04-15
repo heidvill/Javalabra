@@ -10,3 +10,6 @@ Pv	tunteja	mitä tehtiin
 24.3.	0,5	Luokkaakaavion tarkennusta
 30.3.	2	Koodia
 7.4.	3	Koodia
+8.4.	1,5	Sekvenssikaaviot
+9.4.	1	Javadocia
+13.4.	2	Javadocia ja pisteenlasku
