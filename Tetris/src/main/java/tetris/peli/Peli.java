@@ -52,18 +52,24 @@ public class Peli extends Timer implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-//        if (!jatkuu) {
-//            return;
-//        }
+        if (!jatkuu) {
+            return;
+        }
         pala.liiku();
         pala.osuuAlasRuutuun(palasailio);
         if (!pala.isLiikkeessa()) {
+            for (Ruutu ruutu : pala.getRuudut()) {
+                if (ruutu.getY() <= 0) {
+                    jatkuu = false;
+                }
+            }
             palasailio.lisaaPala(pala);
             pala = palasailio.kopioiSeuraavaPala(seuraavaPala.getTyyppi());
             seuraavaPala = palasailio.getUusiPala();
             siirraSeuraavaPalaOikeaanPaikkaan();
             laskuri.kasvataPisteitaPalalla();
         }
+
         etsiTaysiaRiveja();
         alusta.paivita();
 //        setDelay(1000 / pala.getPituus());
@@ -80,7 +86,7 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne
-     * palasäiliöstä.
+     * palasäiliöstä. Lisäksi kasvatetaan pistelaskurin pisteitä täysien rivien mukaan.
      *
      */
     public void etsiTaysiaRiveja() {
@@ -116,10 +122,13 @@ public class Peli extends Timer implements ActionListener {
         return laskuri.getTasot();
     }
 
+    /**
+     * Siirtää seuraavan palan oikeaan kohtaan ikkunassa, jotta piirtoalusta voi piirtää sen.
+     */
     private void siirraSeuraavaPalaOikeaanPaikkaan() {
         for (Ruutu ruutu : seuraavaPala.getRuudut()) {
             ruutu.setX(ruutu.getX() + 8);
-            ruutu.setY(ruutu.getY() + 9);
+            ruutu.setY(ruutu.getY() + 10);
         }
     }
 }

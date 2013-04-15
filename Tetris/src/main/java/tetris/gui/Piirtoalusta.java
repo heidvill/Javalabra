@@ -41,6 +41,11 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             g.fill3DRect(ruutu.getX() * palanSivunPituus, ruutu.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
         }
 
+        if(!peli.jatkuu()){
+            g.setColor(Color.RED);
+            g.drawString("GAME OVER", 100, 100);
+        }
+        
         g.setColor(Color.WHITE);
         g.drawString("Taso", 250, 15);
         g.drawString("" + peli.getTasot(), 250, 32);

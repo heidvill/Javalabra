@@ -16,7 +16,12 @@ public class Pistelaskuri {
         tasot = 0;
         riveja = 0;
     }
-
+    
+    /**
+     * Kasvattaa pistemäärää täysien rivien määrän mukaan.
+     * 
+     * @param riveja kertoo monta riviä oli täysi
+     */
     public void kasvataPisteitaRiveilla(int riveja) {
         this.riveja += riveja;
         int kerroin = 0;
@@ -33,10 +38,17 @@ public class Pistelaskuri {
         kasvataTasoja();
     }
 
+    /**
+     * Kasvattaa pistemäärää pysähtyneen palan mukaan.
+     * Aina kun pala pysähtyy pelialueen pohjalle, siitä saa 4 pistettä.
+     */
     public void kasvataPisteitaPalalla() {
         pisteet += 4;
     }
 
+    /**
+     * Taso nousee joka kymmenennellä rivin poistolla.
+     */
     private void kasvataTasoja() {
         if (riveja % 10 == 0 && riveja != 0) {
             tasot++;
