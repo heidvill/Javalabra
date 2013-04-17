@@ -8,18 +8,18 @@ package tetris.peli;
 public class Pistelaskuri {
 
     private int pisteet;
-    private int tasot;
+    //   private int tasot;
     int riveja;
 
     public Pistelaskuri() {
         pisteet = 0;
-        tasot = 0;
+        //       tasot = 0;
         riveja = 0;
     }
-    
+
     /**
      * Kasvattaa pistemäärää täysien rivien määrän mukaan.
-     * 
+     *
      * @param riveja kertoo monta riviä oli täysi
      */
     public void kasvataPisteitaRiveilla(int riveja) {
@@ -34,32 +34,27 @@ public class Pistelaskuri {
         } else if (riveja == 4) {
             kerroin = 1200;
         }
-        pisteet += kerroin * (tasot + 1);
-        kasvataTasoja();
+        pisteet += kerroin * getTaso();
+        // kasvataTasoja();
     }
 
     /**
-     * Kasvattaa pistemäärää pysähtyneen palan mukaan.
-     * Aina kun pala pysähtyy pelialueen pohjalle, siitä saa 4 pistettä.
+     * Kasvattaa pistemäärää pysähtyneen palan mukaan. Aina kun pala pysähtyy
+     * pelialueen pohjalle, siitä saa 4 pistettä.
      */
     public void kasvataPisteitaPalalla() {
         pisteet += 4;
-    }
-
-    /**
-     * Taso nousee joka kymmenennellä rivin poistolla.
-     */
-    private void kasvataTasoja() {
-        if (riveja % 10 == 0 && riveja != 0) {
-            tasot++;
-        }
     }
 
     public int getPisteet() {
         return pisteet;
     }
 
-    public int getTasot() {
-        return tasot;
+    /**
+     * Taso nousee joka kymmenennen rivin täyttymisen jälkeen
+     * @return taso, joka on täysien rivien määrä jaettuna kymmenellä
+     */
+    public int getTaso() {
+        return riveja / 10 + 1;
     }
 }

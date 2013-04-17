@@ -29,7 +29,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         super.paintComponent(g);
 
         g.setColor(Color.WHITE);
-        g.fill3DRect(0, 0, 240, 400, true);
+        g.fill3DRect(0, 0, 200, 400, true);
 
         g.setColor(peli.getPala().getVari());
         for (Ruutu r : peli.getPala().getRuudut()) {
@@ -47,13 +47,13 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         }
         
         g.setColor(Color.WHITE);
-        g.drawString("Taso", 250, 15);
-        g.drawString("" + peli.getTasot(), 250, 32);
+        g.drawString("Taso", 210, 15);
+        g.drawString("" + peli.getTasot(), 210, 33);
         
-        g.drawString("Pisteet", 250, 72);
-        g.drawString("" + peli.getPisteet(), 250, 95);
+        g.drawString("Pisteet", 210, 72);
+        g.drawString("" + peli.getPisteet(), 210, 95);
         
-        g.drawString("Seuraava pala", 250, 130);
+        g.drawString("Seuraava pala", 210, 130);
         
 //        Pala seuraava = peli.getSeuraavaPala();
 //        for (Ruutu ruutu : seuraava.getRuudut()) {

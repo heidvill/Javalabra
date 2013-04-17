@@ -73,7 +73,8 @@ public class Peli extends Timer implements ActionListener {
         etsiTaysiaRiveja();
         alusta.paivita();
 //        setDelay(1000 / pala.getPituus());
-        setDelay(400 / (laskuri.getTasot() + 1));
+//        setDelay(400 / (laskuri.getTasot() + 1));
+        setDelay(400);
     }
 
     public Pala getPala() {
@@ -119,7 +120,7 @@ public class Peli extends Timer implements ActionListener {
     }
 
     public int getTasot() {
-        return laskuri.getTasot();
+        return laskuri.getTaso();
     }
 
     /**
@@ -127,7 +128,7 @@ public class Peli extends Timer implements ActionListener {
      */
     private void siirraSeuraavaPalaOikeaanPaikkaan() {
         for (Ruutu ruutu : seuraavaPala.getRuudut()) {
-            ruutu.setX(ruutu.getX() + 8);
+            ruutu.setX(ruutu.getX() + 7);
             ruutu.setY(ruutu.getY() + 10);
         }
     }
