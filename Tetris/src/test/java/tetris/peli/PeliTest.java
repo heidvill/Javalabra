@@ -32,6 +32,28 @@ public class PeliTest {
         assertEquals(0, peli.getPalasailio().sailionKoko());
         assertEquals(4, peli.getPala().getRuudut().size());
         assertEquals(0, peli.getPisteet());
+        assertEquals(600, peli.getNopeus());
+        assertEquals(1, peli.getTasot());
+        
+        peli.uusiPeli();
+        assertEquals(0, peli.getPalasailio().sailionKoko());
+        assertEquals(4, peli.getPala().getRuudut().size());
+        assertEquals(0, peli.getPisteet());
+        assertEquals(600, peli.getNopeus());
+        assertEquals(1, peli.getTasot());
+    }
+    
+    @Test
+    public void nopeudenKasvattaminenToimii(){
+        int nopeus = 600;
+        for (int i = 0; i < 11; i++) {
+            assertEquals(nopeus, peli.getNopeus());
+            peli.kasvataNopeutta();
+            nopeus-=50;
+        }
+        
+        peli.kasvataNopeutta();
+        assertEquals(50, peli.getNopeus());
     }
 
     @Test

@@ -4,6 +4,7 @@ import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import tetris.Palatyyppi;
 
 public class PalasailioTest {
 
@@ -35,5 +36,12 @@ public class PalasailioTest {
     public void palauttaaUudenPalanOikein() {
         Pala uusiPala = sailio.getUusiPala();
         assertEquals(4, uusiPala.getRuudut().size());
+    }
+    
+    @Test
+    public void kopioiSeuraavanPalanOikein(){
+        for (Palatyyppi tyyppi : Palatyyppi.values()) {
+            assertEquals(tyyppi, sailio.kopioiSeuraavaPala(tyyppi).getTyyppi());
+        }
     }
 }

@@ -75,12 +75,9 @@ public class Peli extends Timer implements ActionListener {
         }
         pala.liiku();
         pala.osuuAlasRuutuun(palasailio);
+        
         if (!pala.isLiikkeessa()) {
-            for (Ruutu ruutu : pala.getRuudut()) {
-                if (ruutu.getY() <= 0) {
-                    jatkuu = false;
-                }
-            }
+            tarkistaLoppuukoPeli();
             palasailio.lisaaPala(pala);
             pala = palasailio.kopioiSeuraavaPala(seuraavaPala.getTyyppi());
             seuraavaPala = palasailio.getUusiPala();
@@ -103,7 +100,7 @@ public class Peli extends Timer implements ActionListener {
     /**
      * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne
      * palasäiliöstä. Lisäksi kasvatetaan pistelaskurin pisteitä täysien rivien
-     * mukaan ja .
+     * mukaan. Kasvatetaan nopeutta, jos taso nousee siis jos rivien määrä on jaollinen kymmenellä.
      *
      */
     public void etsiTaysiaRiveja() {
@@ -130,9 +127,9 @@ public class Peli extends Timer implements ActionListener {
     /**
      * Kasvattaa palan tippumisnopeutta
      */
-    private void kasvataNopeutta() {
-        if (nopeus > 100) {
-            nopeus -= 60;
+    public void kasvataNopeutta() {
+        if (nopeus >= 100) {
+            nopeus -= 50;
             setDelay(nopeus);
         }
     }
@@ -168,6 +165,17 @@ public class Peli extends Timer implements ActionListener {
         while (seuraavaPala.getRuudut().get(3).getY()!=7) {
             for (Ruutu ruutu : seuraavaPala.getRuudut()) {
                 ruutu.setY(ruutu.getY() + 1);
+            }
+        }
+    }
+
+    /**
+     * Tarkistetaan palan pysähtymisen jälkeen jääkö sen jokin ruutu pelialueen yläreunaan tai sem ulkopuolelle
+     */
+    private void tarkistaLoppuukoPeli() {
+        for (Ruutu ruutu : pala.getRuudut()) {
+            if (ruutu.getY() <= 0) {
+                jatkuu = false;
             }
         }
     }
