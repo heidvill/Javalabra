@@ -24,9 +24,13 @@ public class Nappaimistonkuuntelija implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         Pala pala = peli.getPala();
-
+        if(!peli.jatkuu()){
+            if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                peli.uusiPeli();
+            }
+        }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            if (voikoKaantaa(peli)) {
+            if (voikoKaantaaOikealle(peli)) {
                 pala.kierraOikealle();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -86,7 +90,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
      * @param peli peli, jonka liikkuvaa ja pysähtyneitä paloja tarkastellaan
      * @return True, jos palaa voi kääntää, jos pala menee alueen ulkopuolelle tai osuu muihin paloihin, palautetaan False
      */
-    public boolean voikoKaantaa(Peli peli) {
+    public boolean voikoKaantaaOikealle(Peli peli) {
         Pala kopio = kopioiPala(peli);
         kopio.kierraOikealle();
 

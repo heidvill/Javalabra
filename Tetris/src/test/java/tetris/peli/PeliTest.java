@@ -31,6 +31,7 @@ public class PeliTest {
     public void luoPelinOikein() {
         assertEquals(0, peli.getPalasailio().sailionKoko());
         assertEquals(4, peli.getPala().getRuudut().size());
+        assertEquals(0, peli.getPisteet());
     }
 
     @Test
@@ -54,7 +55,7 @@ public class PeliTest {
         sailio.lisaaPala(palaOikeaanReunaan());
         sailio.lisaaPala(palaVasempaanReunaan());
 
-        Pala pala = palaMelkeinAlhaalla();
+        Pala pala = palaMelkeinAlhaallaKeskella();
         assertEquals("[(4,2), (5,2), (6,2), (7,2)]", pala.toString());
 
         assertTrue(!pala.osuuOikealleRuutuun(sailio));
@@ -72,7 +73,7 @@ public class PeliTest {
         sailio.lisaaPala(palaOikeaanReunaan());
         sailio.lisaaPala(palaVasempaanReunaan());
 
-        Pala pala = palaMelkeinAlhaalla();
+        Pala pala = palaMelkeinAlhaallaKeskella();
         pala.liiku();
         assertTrue(!pala.osuuVasemmalleRuutuun(sailio));
 
@@ -86,7 +87,7 @@ public class PeliTest {
         sailio.lisaaPala(palaOikeaanReunaan());
         sailio.lisaaPala(palaVasempaanReunaan());
 
-        Pala pala = palaMelkeinAlhaalla();
+        Pala pala = palaMelkeinAlhaallaKeskella();
 
         pala.liiku();
         assertTrue(!pala.osuuAlasRuutuun(sailio));
@@ -94,6 +95,19 @@ public class PeliTest {
         pala.setSuunta(Suunta.VASEN);
         pala.liiku();
         assertTrue(pala.osuuAlasRuutuun(sailio));
+    }
+    
+    @Test
+    public void rivinKatoaminenKasvattaaPisteita(){
+        Palasailio sailio = peli.getPalasailio();
+        
+        sailio.lisaaPala(palaVasempaanReunaan());
+        sailio.lisaaPala(palaKeskelle());
+        sailio.lisaaPala(palaOikeaanReunaan());
+
+        peli.etsiTaysiaRiveja();
+        
+        assertEquals(40, peli.getPisteet());
     }
 
     private Pala palaOikeaanReunaan() {
@@ -109,7 +123,7 @@ public class PeliTest {
         return pala3;
     }
 
-    private Pala palaMelkeinAlhaalla() {
+    private Pala palaMelkeinAlhaallaKeskella() {
         Pala pala2 = new IPala(10, 5);
         pala2.kierraOikealle();
         int i = 4;
@@ -121,7 +135,7 @@ public class PeliTest {
     }
 
     private Pala palaKeskelle() {
-        Pala pala = palaMelkeinAlhaalla();
+        Pala pala = palaMelkeinAlhaallaKeskella();
         pala.liiku();
         pala.liiku();
         return pala;
@@ -138,4 +152,5 @@ public class PeliTest {
 
         return pala1;
     }
+    
 }

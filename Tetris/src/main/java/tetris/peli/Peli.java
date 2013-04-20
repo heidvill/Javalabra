@@ -27,19 +27,37 @@ public class Peli extends Timer implements ActionListener {
     private int korkeus;
     private Pistelaskuri laskuri;
     private Pala seuraavaPala;
+    private int nopeus;
 
     public Peli(int leveys, int korkeus) {
         super(1000, null);
-        palasailio = new Palasailio(leveys, korkeus);
+        this.palasailio = new Palasailio(leveys, korkeus);
         this.jatkuu = true;
-        addActionListener(this);
-        setInitialDelay(2000);
         this.pala = palasailio.getUusiPala();
-        seuraavaPala = palasailio.getUusiPala();
+        this.seuraavaPala = palasailio.getUusiPala();
         this.korkeus = korkeus;
         this.leveys = leveys;
-        laskuri = new Pistelaskuri();
+        this.laskuri = new Pistelaskuri();
+        this.nopeus = 600;
+
         siirraSeuraavaPalaOikeaanPaikkaan();
+        addActionListener(this);
+        setDelay(nopeus);
+    }
+    
+    /**
+     * Alustaa kaikki attribuutit, jotta voidaan aloittaa uusi peli.
+     */
+    public void uusiPeli(){
+        this.palasailio = new Palasailio(leveys, korkeus);
+        this.jatkuu = true;
+        this.pala = palasailio.getUusiPala();
+        this.seuraavaPala = palasailio.getUusiPala();
+        this.laskuri = new Pistelaskuri();
+        this.nopeus = 600;
+
+        siirraSeuraavaPalaOikeaanPaikkaan();
+        setDelay(nopeus);
     }
 
     public boolean jatkuu() {
@@ -72,9 +90,6 @@ public class Peli extends Timer implements ActionListener {
 
         etsiTaysiaRiveja();
         alusta.paivita();
-//        setDelay(1000 / pala.getPituus());
-//        setDelay(400 / (laskuri.getTasot() + 1));
-        setDelay(400);
     }
 
     public Pala getPala() {
@@ -87,7 +102,8 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne
-     * palasäiliöstä. Lisäksi kasvatetaan pistelaskurin pisteitä täysien rivien mukaan.
+     * palasäiliöstä. Lisäksi kasvatetaan pistelaskurin pisteitä täysien rivien
+     * mukaan ja .
      *
      */
     public void etsiTaysiaRiveja() {
@@ -103,8 +119,22 @@ public class Peli extends Timer implements ActionListener {
                 taydetRivit.add(rivi);
             }
         }
+
         laskuri.kasvataPisteitaRiveilla(taydetRivit.size());
         palasailio.poistaTaydetRivit(taydetRivit);
+        if (!taydetRivit.isEmpty() && laskuri.getRivit() % 10 == 0) {
+            kasvataNopeutta();
+        }
+    }
+
+    /**
+     * Kasvattaa palan tippumisnopeutta
+     */
+    private void kasvataNopeutta() {
+        if (nopeus > 100) {
+            nopeus -= 60;
+            setDelay(nopeus);
+        }
     }
 
     public int getLeveys() {
@@ -123,13 +153,22 @@ public class Peli extends Timer implements ActionListener {
         return laskuri.getTaso();
     }
 
+    public int getNopeus() {
+        return nopeus;
+    }
+
     /**
-     * Siirtää seuraavan palan oikeaan kohtaan ikkunassa, jotta piirtoalusta voi piirtää sen.
+     * Siirtää seuraavan palan oikeaan kohtaan ikkunassa, jotta piirtoalusta voi
+     * piirtää sen.
      */
     private void siirraSeuraavaPalaOikeaanPaikkaan() {
         for (Ruutu ruutu : seuraavaPala.getRuudut()) {
-            ruutu.setX(ruutu.getX() + 7);
-            ruutu.setY(ruutu.getY() + 10);
+                ruutu.setX(ruutu.getX() + 7);
+            }
+        while (seuraavaPala.getRuudut().get(3).getY()!=7) {
+            for (Ruutu ruutu : seuraavaPala.getRuudut()) {
+                ruutu.setY(ruutu.getY() + 1);
+            }
         }
     }
 }

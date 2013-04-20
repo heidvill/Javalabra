@@ -8,13 +8,11 @@ package tetris.peli;
 public class Pistelaskuri {
 
     private int pisteet;
-    //   private int tasot;
-    int riveja;
+    int rivit;
 
     public Pistelaskuri() {
         pisteet = 0;
-        //       tasot = 0;
-        riveja = 0;
+        rivit = 0;
     }
 
     /**
@@ -23,7 +21,6 @@ public class Pistelaskuri {
      * @param riveja kertoo monta riviä oli täysi
      */
     public void kasvataPisteitaRiveilla(int riveja) {
-        this.riveja += riveja;
         int kerroin = 0;
         if (riveja == 1) {
             kerroin = 40;
@@ -35,7 +32,7 @@ public class Pistelaskuri {
             kerroin = 1200;
         }
         pisteet += kerroin * getTaso();
-        // kasvataTasoja();
+        this.rivit += riveja;
     }
 
     /**
@@ -50,11 +47,15 @@ public class Pistelaskuri {
         return pisteet;
     }
 
+    public int getRivit() {
+        return rivit;
+    }
+
     /**
      * Taso nousee joka kymmenennen rivin täyttymisen jälkeen
      * @return taso, joka on täysien rivien määrä jaettuna kymmenellä
      */
     public int getTaso() {
-        return riveja / 10 + 1;
+        return rivit / 10 + 1;
     }
 }
