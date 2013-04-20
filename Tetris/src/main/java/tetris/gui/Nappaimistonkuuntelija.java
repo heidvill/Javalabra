@@ -30,7 +30,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
             }
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            if (voikoKaantaaOikealle(peli)) {
+            if (voikoKaantaaOikealle()) {
                 pala.kierraOikealle();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -54,7 +54,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
     public void keyReleased(KeyEvent ke) {
     }
 
-    private Pala kopioiPala(Peli peli) {
+    private Pala kopioiPala() {
         Pala kopio = null;
         Palatyyppi tyyppi = peli.getPala().getTyyppi();
         if (tyyppi == Palatyyppi.I) {
@@ -87,11 +87,10 @@ public class Nappaimistonkuuntelija implements KeyListener {
     /**
      * Tarkistaa voiko palaa kääntää oikealle
      * 
-     * @param peli peli, jonka liikkuvaa ja pysähtyneitä paloja tarkastellaan
      * @return True, jos palaa voi kääntää, jos pala menee alueen ulkopuolelle tai osuu muihin paloihin, palautetaan False
      */
-    public boolean voikoKaantaaOikealle(Peli peli) {
-        Pala kopio = kopioiPala(peli);
+    public boolean voikoKaantaaOikealle() {
+        Pala kopio = kopioiPala();
         kopio.kierraOikealle();
 
         for (Ruutu ruutu : kopio.getRuudut()) {
