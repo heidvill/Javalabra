@@ -46,23 +46,19 @@ public class Palasailio {
         int luku = new Random().nextInt(7);
         if (luku == 0) {
             return new IPala(leveys, korkeus);
-        }
-        if (luku == 1) {
+        } else if (luku == 1) {
             return new JPala(leveys, korkeus);
-        }
-        if (luku == 2) {
+        } else if (luku == 2) {
             return new LPala(leveys, korkeus);
-        }
-        if (luku == 3) {
+        } else if (luku == 3) {
             return new OPala(leveys, korkeus);
-        }
-        if (luku == 4) {
+        } else if (luku == 4) {
             return new SPala(leveys, korkeus);
-        }
-        if (luku == 5) {
+        } else if (luku == 5) {
             return new TPala(leveys, korkeus);
+        } else {
+            return new ZPala(leveys, korkeus);
         }
-        return new ZPala(leveys, korkeus);
     }
 
     public Pala kopioiSeuraavaPala(Palatyyppi tyyppi) {

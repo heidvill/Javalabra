@@ -9,10 +9,10 @@ public class App {
     public static void main(String[] args) {
         Peli tetris = new Peli(10, 20);
 
-        Kayttoliittyma kali = new Kayttoliittyma(tetris, 20);
-        SwingUtilities.invokeLater(kali);
+        Kayttoliittyma kayttis = new Kayttoliittyma(tetris, 20);
+        SwingUtilities.invokeLater(kayttis);
 
-        while (kali.getPiirtoalusta() == null) {
+        while (kayttis.getPiirtoalusta() == null) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
@@ -20,7 +20,7 @@ public class App {
             }
         }
 
-        tetris.setPiirtoalusta(kali.getPiirtoalusta());
+        tetris.setPiirtoalusta(kayttis.getPiirtoalusta());
         tetris.start();
     }
 }
