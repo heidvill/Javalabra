@@ -166,6 +166,9 @@ public abstract class Pala {
         return vari;
     }
 
+    /**
+     * Kiertää palaa Oikealle
+     */
     public abstract void kierraOikealle();
 
     /**

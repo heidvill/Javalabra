@@ -34,6 +34,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
                 pala.kierraOikealle();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            
             pala.setSuunta(Suunta.ALAS);
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             if (!pala.osuuVasemmalleRuutuun(peli.getPalasailio())) {
