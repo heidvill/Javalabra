@@ -34,8 +34,10 @@ public class Nappaimistonkuuntelija implements KeyListener {
                 pala.kierraOikealle();
             }
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            
-            pala.setSuunta(Suunta.ALAS);
+            if(voikoKaantaaVasemmalle()){
+            pala.kierraVasemmalle();
+//            pala.setSuunta(Suunta.ALAS);
+            }
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             if (!pala.osuuVasemmalleRuutuun(peli.getPalasailio())) {
                 pala.setSuunta(Suunta.VASEN);
@@ -90,7 +92,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
      * 
      * @return True, jos palaa voi kääntää, jos pala menee alueen ulkopuolelle tai osuu muihin paloihin, palautetaan False
      */
-    public boolean voikoKaantaaOikealle() {
+    private boolean voikoKaantaaOikealle() {
         Pala kopio = kopioiPala();
         kopio.kierraOikealle();
 
@@ -100,6 +102,22 @@ public class Nappaimistonkuuntelija implements KeyListener {
             }
         }
 
+        if (kopio.osuuAlasRuutuun(peli.getPalasailio())) {
+            return false;
+        }
+        return true;
+    }
+    
+    private boolean voikoKaantaaVasemmalle(){
+        Pala kopio = kopioiPala();
+        kopio.kierraVasemmalle();
+        
+        for (Ruutu ruutu : kopio.getRuudut()) {
+            if (ruutu.getX() < 0 || ruutu.getX() >= peli.getLeveys()) {
+                return false;
+            }
+        }
+        
         if (kopio.osuuAlasRuutuun(peli.getPalasailio())) {
             return false;
         }

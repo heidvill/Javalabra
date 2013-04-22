@@ -170,6 +170,12 @@ public abstract class Pala {
      * Kiertää palaa Oikealle
      */
     public abstract void kierraOikealle();
+    
+    public void kierraVasemmalle(){
+        for (int i = 0; i < 3; i++) {
+            kierraOikealle();
+        }
+    }
 
     /**
      * Tarkistaa onko pala oikeassa reunassa.
