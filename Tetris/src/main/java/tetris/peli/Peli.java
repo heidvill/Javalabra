@@ -38,7 +38,7 @@ public class Peli extends Timer implements ActionListener {
         this.korkeus = korkeus;
         this.leveys = leveys;
         this.laskuri = new Pistelaskuri();
-        this.nopeus = 600;
+        this.nopeus = 500;
 
         siirraSeuraavaPalaOikeaanPaikkaan();
         addActionListener(this);
@@ -54,7 +54,7 @@ public class Peli extends Timer implements ActionListener {
         this.pala = palasailio.getUusiPala();
         this.seuraavaPala = palasailio.getUusiPala();
         this.laskuri = new Pistelaskuri();
-        this.nopeus = 600;
+        this.nopeus = 400;
 
         siirraSeuraavaPalaOikeaanPaikkaan();
         setDelay(nopeus);
@@ -128,7 +128,7 @@ public class Peli extends Timer implements ActionListener {
      * Kasvattaa palan tippumisnopeutta
      */
     public void kasvataNopeutta() {
-        if (nopeus >= 100) {
+        if (nopeus >= 90) {
             nopeus -= 50;
             setDelay(nopeus);
         }
