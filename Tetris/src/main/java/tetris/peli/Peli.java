@@ -44,22 +44,26 @@ public class Peli extends Timer implements ActionListener {
         addActionListener(this);
         setDelay(nopeus);
     }
-    
+
     /**
      * Alustaa kaikki attribuutit, jotta voidaan aloittaa uusi peli.
      */
-    public void uusiPeli(){
+    public void uusiPeli() {
         this.palasailio = new Palasailio(leveys, korkeus);
         this.jatkuu = true;
         this.pala = palasailio.getUusiPala();
         this.seuraavaPala = palasailio.getUusiPala();
         this.laskuri = new Pistelaskuri();
-        this.nopeus = 400;
+        this.nopeus = 500;
 
         siirraSeuraavaPalaOikeaanPaikkaan();
         setDelay(nopeus);
     }
 
+    /**
+     * Kertoo jatkuuko peli.
+     * @return True jos peliä voi pelata, False jos peli on päättynyt.
+     */
     public boolean jatkuu() {
         return jatkuu;
     }
@@ -75,7 +79,7 @@ public class Peli extends Timer implements ActionListener {
         }
         pala.liiku();
         pala.osuuAlasRuutuun(palasailio);
-        
+
         if (!pala.isLiikkeessa()) {
             tarkistaLoppuukoPeli();
             palasailio.lisaaPala(pala);
@@ -87,6 +91,7 @@ public class Peli extends Timer implements ActionListener {
 
         etsiTaysiaRiveja();
         alusta.paivita();
+        setDelay(nopeus);
     }
 
     public Pala getPala() {
@@ -100,7 +105,8 @@ public class Peli extends Timer implements ActionListener {
     /**
      * Etsii muodostuuko palasäiliön ruuduista täysiä rivejä ja poistaa ne
      * palasäiliöstä. Lisäksi kasvatetaan pistelaskurin pisteitä täysien rivien
-     * mukaan. Kasvatetaan nopeutta, jos taso nousee siis jos rivien määrä on jaollinen kymmenellä.
+     * mukaan. Kasvatetaan nopeutta, jos taso nousee siis jos rivien määrä on
+     * jaollinen kymmenellä.
      *
      */
     public void etsiTaysiaRiveja() {
@@ -125,7 +131,7 @@ public class Peli extends Timer implements ActionListener {
     }
 
     /**
-     * Kasvattaa palan tippumisnopeutta
+     * Kasvattaa palan tippumisnopeutta, siis pienentää viivettä.
      */
     public void kasvataNopeutta() {
         if (nopeus >= 90) {
@@ -160,17 +166,22 @@ public class Peli extends Timer implements ActionListener {
      */
     private void siirraSeuraavaPalaOikeaanPaikkaan() {
         for (Ruutu ruutu : seuraavaPala.getRuudut()) {
-                ruutu.setX(ruutu.getX() + 7);
-            }
-        while (seuraavaPala.getRuudut().get(3).getY()!=7) {
+            ruutu.setX(ruutu.getX() + 7);
+        }
+        while (seuraavaPala.getRuudut().get(3).getY() != 7) {
             for (Ruutu ruutu : seuraavaPala.getRuudut()) {
                 ruutu.setY(ruutu.getY() + 1);
             }
         }
     }
 
+    public int getKorkeus() {
+        return korkeus;
+    }
+
     /**
-     * Tarkistetaan palan pysähtymisen jälkeen jääkö sen jokin ruutu pelialueen yläreunaan tai sem ulkopuolelle
+     * Tarkistetaan palan pysähtymisen jälkeen jääkö sen jokin ruutu pelialueen
+     * yläreunaan tai sem ulkopuolelle
      */
     private void tarkistaLoppuukoPeli() {
         for (Ruutu ruutu : pala.getRuudut()) {

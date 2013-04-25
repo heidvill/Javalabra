@@ -49,7 +49,8 @@ public abstract class Pala {
     }
 
     /**
-     * Jos palan mikään ruuduista ei ole pelialueen vasemmassa reunassa, niin siirretään palan kaikkia ruutuja yksi askel vasemmalle.
+     * Jos palan mikään ruuduista ei ole pelialueen vasemmassa reunassa, niin
+     * siirretään palan kaikkia ruutuja yksi askel vasemmalle.
      */
     private void liikuVasemmalle() {
         suunta = Suunta.ALAS;
@@ -61,7 +62,8 @@ public abstract class Pala {
     }
 
     /**
-     * Jos palan mikään ruuduista ei ole pelialueen oikeassa reunassa, niin siirretään palan kaikkia ruutuja yksi askel oikealle.
+     * Jos palan mikään ruuduista ei ole pelialueen oikeassa reunassa, niin
+     * siirretään palan kaikkia ruutuja yksi askel oikealle.
      */
     private void liikuOikealle() {
         suunta = Suunta.ALAS;
@@ -73,8 +75,9 @@ public abstract class Pala {
     }
 
     /**
-     * Jos mikään palan ruuduista ei ole pelialueen pohjalla, niin siirretään palan kaikkia ruutuja yksi askel alaspäin.
-     * Jos jokin pala on pohjalla asetetaan liikkeessä-attribuutille arvo false.
+     * Jos mikään palan ruuduista ei ole pelialueen pohjalla, niin siirretään
+     * palan kaikkia ruutuja yksi askel alaspäin. Jos jokin pala on pohjalla
+     * asetetaan liikkeessä-attribuutille arvo false.
      */
     private void liikuAlas() {
         //jos ollaan jo pohjalla
@@ -170,8 +173,8 @@ public abstract class Pala {
      * Kiertää palaa Oikealle
      */
     public abstract void kierraOikealle();
-    
-    public void kierraVasemmalle(){
+
+    public void kierraVasemmalle() {
         for (int i = 0; i < 3; i++) {
             kierraOikealle();
         }

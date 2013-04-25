@@ -61,6 +61,15 @@ public class Palasailio {
         }
     }
 
+    /**
+     * Luo uuden palan seuraavan palan tyypin mukaan.
+     *
+     * @param tyyppi kopioitavan palan tyyppi
+     * @return uusi pala, joka on samanmuotoinen kuin parametrina annettava
+     * tyyppi
+     *
+     * @see Palatyyppi
+     */
     public Pala kopioiSeuraavaPala(Palatyyppi tyyppi) {
         if (tyyppi == Palatyyppi.I) {
             return new IPala(leveys, korkeus);
@@ -110,9 +119,16 @@ public class Palasailio {
         laskeYlempiaRiveja(ylin, taydetRivit.size());
     }
 
-    private void laskeYlempiaRiveja(int ylaraja, int paljonLasketaan) {
+    /**
+     * Laskee poistetun/poistettujen rivi(e)n yläpuolisia rivejä.
+     *
+     * @param raja kertoo minkä koordinaatin yläpuolisia rivejä lasketaan
+     * @param paljonLasketaan kertoo monta askelta rivejä lasketaan, riippuu
+     * poistettujen rivien määrästä.
+     */
+    private void laskeYlempiaRiveja(int raja, int paljonLasketaan) {
         for (Ruutu ruutu : ruudut) {
-            if (ruutu.getY() < ylaraja) {
+            if (ruutu.getY() < raja) {
                 ruutu.setY(ruutu.getY() + paljonLasketaan);
             }
         }

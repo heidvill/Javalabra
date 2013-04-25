@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 import tetris.domain.Ruutu;
 import tetris.peli.Peli;
-import tetris.domain.Pala;
 
 /**
  * Piirtoalusta piirtää taustan, liikkuvan palan ja pysähtyneet palat sekä
@@ -41,22 +40,22 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             g.fill3DRect(ruutu.getX() * palanSivunPituus, ruutu.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);
         }
 
-        if(!peli.jatkuu()){
+        if (!peli.jatkuu()) {
             g.setColor(Color.RED);
             g.drawString("Peli päättyi!", 210, 240);
             g.drawString("Aloita uusi peli", 210, 260);
-            g.drawString("painamalla Enter.", 210, 280);
+            g.drawString("painamalla enter.", 210, 280);
         }
-        
+
         g.setColor(Color.WHITE);
         g.drawString("Taso", 210, 20);
         g.drawString("" + peli.getTasot(), 210, 37);
-        
+
         g.drawString("Pisteet", 210, 72);
         g.drawString("" + peli.getPisteet(), 210, 90);
-        
+
         g.drawString("Seuraava pala", 210, 130);
-     
+
         g.setColor(peli.getSeuraavaPala().getVari());
         for (Ruutu r : peli.getSeuraavaPala().getRuudut()) {
             g.fill3DRect(r.getX() * palanSivunPituus, r.getY() * palanSivunPituus, palanSivunPituus, palanSivunPituus, true);

@@ -20,6 +20,7 @@ public class Kayttoliittyma implements Runnable {
     public Kayttoliittyma(Peli peli, int sivunPituus) {
         this.peli = peli;
         this.alusta = new Piirtoalusta(peli, sivunPituus);
+        peli.setPiirtoalusta(alusta);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class Kayttoliittyma implements Runnable {
         return frame;
     }
 
-    public Paivitettava getPiirtoalusta() {
+    public Paivitettava getPaivitettava() {
         return alusta;
     }
 }

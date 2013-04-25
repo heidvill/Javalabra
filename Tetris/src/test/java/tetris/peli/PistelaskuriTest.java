@@ -29,27 +29,47 @@ public class PistelaskuriTest {
      }
      
      @Test
-     public void pisteetKasvaaOikein() {
-     assertEquals(0, laskuri.getPisteet());
+     public void pisteetKasvaaOikeinKunPalaPysahtyy(){
+         assertEquals(0, laskuri.getPisteet());
      
      laskuri.kasvataPisteitaPalalla();
      assertEquals(4, laskuri.getPisteet());
+     }
+     
+     @Test
+     public void pisteetKasvaaOikeinKunRivejaKatoaa() {
+     assertEquals(0, laskuri.getPisteet());
      
      laskuri.kasvataPisteitaRiveilla(0);
-     assertEquals(4, laskuri.getPisteet());
+     assertEquals(0, laskuri.getPisteet());
      
      laskuri.kasvataPisteitaRiveilla(1);
-     assertEquals(44, laskuri.getPisteet());
+     assertEquals(40, laskuri.getPisteet());
      
      laskuri.kasvataPisteitaRiveilla(2);
-     assertEquals(144, laskuri.getPisteet());
+     assertEquals(140, laskuri.getPisteet());
      
      laskuri.kasvataPisteitaRiveilla(3);
-     assertEquals(444, laskuri.getPisteet());
+     assertEquals(440, laskuri.getPisteet());
      
      laskuri.kasvataPisteitaRiveilla(4);
-     assertEquals(1644, laskuri.getPisteet());     
+     assertEquals(1640, laskuri.getPisteet());     
+     }
      
-     assertEquals(2, laskuri.getTaso());
+     @Test
+     public void tasoKasvaaOikein(){ 
+         assertEquals(1, laskuri.getTaso());
+         
+         laskuri.kasvataPisteitaRiveilla(4);
+         laskuri.kasvataPisteitaRiveilla(4);
+         laskuri.kasvataPisteitaRiveilla(2);
+         
+         assertEquals(2, laskuri.getTaso());
+         
+         laskuri.kasvataPisteitaRiveilla(4);
+         laskuri.kasvataPisteitaRiveilla(4);
+         laskuri.kasvataPisteitaRiveilla(2);
+         
+         assertEquals(3, laskuri.getTaso());
      }
 }
