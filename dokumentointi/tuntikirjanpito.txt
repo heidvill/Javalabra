@@ -16,3 +16,4 @@ Pv	tunteja	mitä tehtiin
 15.4.	1	Koodia
 17.4.	1	Korjauksia
 20.4.	1	Testejä
+25.4.	1	Siistimistä ja pieniä korjauksia

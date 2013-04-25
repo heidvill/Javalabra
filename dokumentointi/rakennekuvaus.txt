@@ -1,0 +1,14 @@
+Tetriksen rakennekuvaus
+
+Pelin keskiössä on Peli-luokka, joka pyörittää koko peliä.
+Peli luo Palasäiliön ja Pistelaskurin.
+Käyttöliittymä/Piirtoalusta saa attribuutikseen pelin, jotta se voi piirtää ja päivittää pelitilannetta.
+Näppäimistönkuuntelija muuttaa pelitilannetta käyttäjän näppäinten painallusten mukaan.
+
+Pistelaskuri hoitaa pisteenlaskun ja tasojen kasvattamisen, pelissä on aina yksi laskuri.
+
+Palasäiliö luo peliin tulevat liikkuvat palat ja säilöö pysähtyneet palat.
+Abstrakti luokka Pala muodostuu neljästä ruudusta. Palan perivät sen mahdolliset eri muodot: I-, J-, L-, O-, S-, T- ja ZPala.
+Ruutu on palan yksi osa ja ruutu tuntee sijaintinsa pelialueella.
+
+Enum-luokat Suunta ja Palatyyppi kertovat mihin suuntaan pala liikkuu/siirtyy ja minkä muotoinen pala on.

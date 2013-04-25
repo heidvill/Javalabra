@@ -1,0 +1,10 @@
+Käyttöohje
+
+Tetriksen ideana on pudotella ylhäältä tulevia paloja pelialueen alareunaan ja muodostaa paloista täysia koko leveyden täyttäviä rivejä.
+Jos paloja keräytyy niin paljon, että seuraava pala osuu pelialueen yläreunaan, peli päättyy.
+
+Peli laskee tasoja ja pisteitä. Pisteitä saa jokaisesta palasta ja täydestä rivistä. Taso kasvaa joka kymmenennellä täydellä rivillä. Peli nopeutuu tasojen kasvaessa.
+
+Palaa voi liikuttaa vasemmalla ja oikealla vasemmalla ja oikealla nuolinäppäimellä. Pala kiertyy myötäpäivään ylänuolinäppimestä ja vastapäivään alanuolinäppäimestä. Palan tippumista voi nopeuttaa välilyönnillä (näppäintä voi pitää pohjassa, jolloin pala tippuu nopeammin pidemmän aikaa).
+
+Pelin päätyttyä uuden pelin voi aloittaa painamalla enteriä.
