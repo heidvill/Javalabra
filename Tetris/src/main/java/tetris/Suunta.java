@@ -1,7 +1,7 @@
 package tetris;
 
 /**
- * Määrittelee palan liikkumissuunnan
+ * Määrittelee palan liikkumissuunnan.
  *
  * @author heidvill
  */

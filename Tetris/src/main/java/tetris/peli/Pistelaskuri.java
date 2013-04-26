@@ -32,12 +32,12 @@ public class Pistelaskuri {
             kerroin = 1200;
         }
         pisteet += kerroin * getTaso();
-        this.rivit += riveja;
+        rivit += riveja;
     }
 
     /**
      * Kasvattaa pistemäärää pysähtyneen palan mukaan. Aina kun pala pysähtyy
-     * pelialueen pohjalle, siitä saa 4 pistettä.
+     * pelialueen pohjalle/pysähtyneiden palojen päälle, siitä saa 4 pistettä.
      */
     public void kasvataPisteitaPalalla() {
         pisteet += 4;

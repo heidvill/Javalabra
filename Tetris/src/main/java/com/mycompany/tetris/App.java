@@ -12,7 +12,7 @@ public class App {
         Kayttoliittyma kayttis = new Kayttoliittyma(tetris, 20);
         SwingUtilities.invokeLater(kayttis);
 
-        while (kayttis.getPaivitettava() == null) {
+        while (kayttis.getPiirtoalusta() == null) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {

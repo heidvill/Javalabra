@@ -4,7 +4,7 @@ import java.awt.Color;
 import tetris.Palatyyppi;
 
 /**
- * T:n muotoinen pala, joka perii Pala-luokan
+ * T:n muotoinen pala, joka perii Pala-luokan.
  *
  * @see Pala
  * @author heidvill
@@ -38,7 +38,7 @@ public class TPala extends Pala {
     }
 
     /**
-     * Luo ruudut palaan oikeisiin koordinaatteihin
+     * Luo ruudut palaan oikeisiin koordinaatteihin.
      */
     private void lisaaRuudut() {
         r1 = new Ruutu(leveys / 2 - 1, 0, vari);

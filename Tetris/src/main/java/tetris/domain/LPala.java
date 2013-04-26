@@ -44,7 +44,7 @@ public class LPala extends Pala {
     }
 
     /**
-     * Luo ruudut palaan oikeisiin koordinaatteihin
+     * Luo ruudut palaan oikeisiin koordinaatteihin.
      */
     private void lisaaRuudut() {
         r1 = new Ruutu(leveys / 2, 0, vari);

@@ -8,11 +8,11 @@ import tetris.peli.Peli;
 
 /**
  * Piirtoalusta piirtää taustan, liikkuvan palan ja pysähtyneet palat sekä
- * pisteet, räjäytetyt rivit ja seuraavan palan
+ * pisteet, tason ja seuraavan palan.
  *
  * @author heidvill
  */
-public class Piirtoalusta extends JPanel implements Paivitettava {
+public class Piirtoalusta extends JPanel{
 
     private Peli peli;
     private int palanSivunPituus;
@@ -62,7 +62,9 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         }
     }
 
-    @Override
+    /**
+     *Piirtää pelitilanteen uudestaan.
+     */
     public void paivita() {
         repaint();
     }

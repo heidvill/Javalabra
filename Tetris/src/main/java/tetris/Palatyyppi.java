@@ -1,7 +1,7 @@
 package tetris;
 
 /**
- * Määrittelee palan muodon
+ * Määrittelee palan muodon.
  *
  * @author heidvill
  */

@@ -4,7 +4,7 @@ import java.awt.Color;
 import tetris.Palatyyppi;
 
 /**
- * Z:n muotoinen pala, joka perii Pala-luokan
+ * Z:n muotoinen pala, joka perii Pala-luokan.
  *
  * @see Pala
  * @author heidvill
@@ -34,7 +34,7 @@ public class ZPala extends Pala {
     }
 
     /**
-     * Luo ruudut palaan oikeisiin koordinaatteihin
+     * Luo ruudut palaan oikeisiin koordinaatteihin.
      */
     private void lisaaRuudut() {
         r1 = new Ruutu(leveys / 2, 0, vari);

@@ -76,7 +76,7 @@ public abstract class Pala {
 
     /**
      * Jos mikään palan ruuduista ei ole pelialueen pohjalla, niin siirretään
-     * palan kaikkia ruutuja yksi askel alaspäin. Jos jokin pala on pohjalla
+     * palan kaikkia ruutuja yksi askel alaspäin. Jos jokin pala on pohjalla,
      * asetetaan liikkeessä-attribuutille arvo false.
      */
     private void liikuAlas() {
@@ -97,7 +97,7 @@ public abstract class Pala {
      * ruutuihin.
      *
      * @param sailio Palasäiliö, josta saadaan pysähtyneet palat
-     * @return True, jos pala osuu toi, muuten False
+     * @return True, jos pala osuu, muuten False
      */
     public boolean osuuVasemmalleRuutuun(Palasailio sailio) {
         for (Ruutu ruutu : ruudut) {
@@ -170,10 +170,13 @@ public abstract class Pala {
     }
 
     /**
-     * Kiertää palaa Oikealle
+     * Kiertää palaa oikealle.
      */
     public abstract void kierraOikealle();
 
+    /**
+     * Kiertää palaa vasemmalle.
+     */
     public void kierraVasemmalle() {
         for (int i = 0; i < 3; i++) {
             kierraOikealle();

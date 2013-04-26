@@ -7,7 +7,7 @@ import javax.swing.Timer;
 import tetris.domain.Pala;
 import tetris.domain.Palasailio;
 import tetris.domain.Ruutu;
-import tetris.gui.Paivitettava;
+import tetris.gui.Piirtoalusta;
 
 /**
  * Peli-luokka kokoaa tetriksen kokonaisuudeksi.
@@ -20,7 +20,7 @@ import tetris.gui.Paivitettava;
 public class Peli extends Timer implements ActionListener {
 
     private boolean jatkuu;
-    private Paivitettava alusta;
+    private Piirtoalusta alusta;
     private Pala pala;
     private Palasailio palasailio;
     private int leveys;
@@ -62,14 +62,15 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Kertoo jatkuuko peli.
+     *
      * @return True jos peliä voi pelata, False jos peli on päättynyt.
      */
     public boolean jatkuu() {
         return jatkuu;
     }
 
-    public void setPiirtoalusta(Paivitettava paivitettava) {
-        this.alusta = paivitettava;
+    public void setPiirtoalusta(Piirtoalusta alusta) {
+        this.alusta = alusta;
     }
 
     @Override
@@ -88,12 +89,16 @@ public class Peli extends Timer implements ActionListener {
             siirraSeuraavaPalaOikeaanPaikkaan();
             laskuri.kasvataPisteitaPalalla();
         }
-
-        etsiTaysiaRiveja();
-        alusta.paivita();
+        
+        etsiTaysiaRiveja(); 
         setDelay(nopeus);
+        alusta.paivita();
     }
 
+    /**
+     * 
+     * @return liikkuva pala
+     */
     public Pala getPala() {
         return pala;
     }
@@ -181,7 +186,7 @@ public class Peli extends Timer implements ActionListener {
 
     /**
      * Tarkistetaan palan pysähtymisen jälkeen jääkö sen jokin ruutu pelialueen
-     * yläreunaan tai sem ulkopuolelle
+     * yläreunaan tai sen ulkopuolelle.
      */
     private void tarkistaLoppuukoPeli() {
         for (Ruutu ruutu : pala.getRuudut()) {

@@ -52,7 +52,7 @@ public class Ruutu {
      * Tarkistaa osuisiko ruutu seuraavalla alas liikkumisella parametrina
      * saataviin ruutuihin.
      *
-     * @param ruudut, ruudut joihin tämän ruudun koordinaatteja verrataan
+     * @param ruudut ruudut joihin tämän ruudun koordinaatteja verrataan
      * @return True, jos ruutu osuisi johonkin toiseen ruutuun, muuten False
      */
     public boolean osuuAlasRuutuun(ArrayList<Ruutu> ruudut) {
@@ -68,7 +68,7 @@ public class Ruutu {
      * Tarkistaa osuisiko ruutu seuraavalla vasemmalle liikkumisella parametrina
      * saataviin ruutuihin.
      *
-     * @param ruudut, ruudut joihin tämän ruudun koordinaatteja verrataan
+     * @param ruudut ruudut joihin tämän ruudun koordinaatteja verrataan
      * @return True, jos ruutu osuisi johonkin toiseen ruutuun, muuten False
      */
     public boolean osuuVasemmalleRuutuun(ArrayList<Ruutu> ruudut) {
@@ -84,7 +84,7 @@ public class Ruutu {
      * Tarkistaa osuisiko ruutu seuraavalla oikealle liikkumisella parametrina
      * saataviin ruutuihin.
      *
-     * @param ruudut, ruudut joihin tämän ruudun koordinaatteja verrataan
+     * @param ruudut ruudut joihin tämän ruudun koordinaatteja verrataan
      * @return True, jos ruutu osuisi johonkin toiseen ruutuun, muuten False
      */
     public boolean osuuOikealleRuutuun(ArrayList<Ruutu> ruudut) {

@@ -25,7 +25,7 @@ public class Palasailio {
     /**
      * Lisää parametrina annetun palan palasäiliöön.
      *
-     * @param pala, säiliöön lisättävä pala
+     * @param pala säiliöön lisättävä pala
      */
     public void lisaaPala(Pala pala) {
         for (Ruutu ruutu : pala.getRuudut()) {
@@ -88,6 +88,10 @@ public class Palasailio {
         }
     }
 
+    /**
+     *
+     * @return säiliössä olevien palojen määrä
+     */
     public int sailionKoko() {
         return ruudut.size();
     }
@@ -97,7 +101,7 @@ public class Palasailio {
      *
      * Jos täysiä rivejä ei ole yhtään, metodi ei tee mitään.
      *
-     * @param taydetRivit, sisältää täysien rivien y-koordinaattien arvot
+     * @param taydetRivit sisältää täysien rivien y-koordinaattien arvot
      */
     public void poistaTaydetRivit(ArrayList<Integer> taydetRivit) {
         if (taydetRivit.isEmpty()) {

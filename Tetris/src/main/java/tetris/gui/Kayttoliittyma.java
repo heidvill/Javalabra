@@ -26,7 +26,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Tetris");
-        frame.setPreferredSize(new Dimension(350, 440));
+        frame.setPreferredSize(new Dimension(350, 435));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,7 +45,7 @@ public class Kayttoliittyma implements Runnable {
         return frame;
     }
 
-    public Paivitettava getPaivitettava() {
+    public Piirtoalusta getPiirtoalusta() {
         return alusta;
     }
 }

@@ -23,7 +23,7 @@ public class OPala extends Pala {
     }
 
     /**
-     * Luo ruudut palaan oikeisiin koordinaatteihin
+     * Luo ruudut palaan oikeisiin koordinaatteihin.
      */
     private void lisaaRuudut() {
         for (int i = 0; i > -2; i--) {
