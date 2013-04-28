@@ -54,6 +54,9 @@ public class PistelaskuriTest {
 
         laskuri.kasvataPisteitaRiveilla(4);
         assertEquals(1640, laskuri.getPisteet());
+        
+        laskuri.kasvataPisteitaRiveilla(5);
+        assertEquals(1640, laskuri.getPisteet());
     }
 
     @Test

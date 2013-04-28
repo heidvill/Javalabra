@@ -34,7 +34,7 @@ public class PeliTest {
         assertEquals(0, peli.getPisteet());
         assertEquals(500, peli.getNopeus());
         assertEquals(1, peli.getTasot());
-        
+
         peli.uusiPeli();
         assertEquals(0, peli.getPalasailio().sailionKoko());
         assertEquals(4, peli.getPala().getRuudut().size());
@@ -42,16 +42,28 @@ public class PeliTest {
         assertEquals(500, peli.getNopeus());
         assertEquals(1, peli.getTasot());
     }
-    
+
     @Test
-    public void nopeudenKasvattaminenToimii(){
+    public void uudenPelinAloittaminenOikein() {
+        peli.getLaskuri().kasvataPisteitaPalalla();
+
+        peli.uusiPeli();
+        assertEquals(0, peli.getPalasailio().sailionKoko());
+        assertEquals(4, peli.getPala().getRuudut().size());
+        assertEquals(0, peli.getPisteet());
+        assertEquals(500, peli.getNopeus());
+        assertEquals(1, peli.getTasot());
+    }
+
+    @Test
+    public void nopeudenKasvattaminenToimii() {
         int nopeus = 500;
         for (int i = 0; i < 10; i++) {
             assertEquals(nopeus, peli.getNopeus());
             peli.kasvataNopeutta();
-            nopeus-=50;
+            nopeus -= 50;
         }
-        
+
         peli.kasvataNopeutta();
         peli.kasvataNopeutta();
         assertEquals(50, peli.getNopeus());
@@ -71,18 +83,18 @@ public class PeliTest {
         peli.etsiTaysiaRiveja();
         assertEquals(2, peli.getPalasailio().getRuudut().size());
     }
-    
+
     @Test
-    public void taydenRivinJalkeenYlemmatRivitSiirtyvatOikein(){
+    public void taydenRivinJalkeenYlemmatRivitSiirtyvatOikein() {
         Palasailio sailio = peli.getPalasailio();
         sailio.lisaaPala(palaVasempaanReunaan());
         sailio.lisaaPala(palaKeskelle());
         sailio.lisaaPala(palaOikeaanReunaan());
         peli.etsiTaysiaRiveja();
-        
+
         Ruutu ruutu1 = sailio.getRuudut().get(0);
         Ruutu ruutu2 = sailio.getRuudut().get(1);
-        
+
         assertEquals("(9,4)", ruutu1.toString());
         assertEquals("(8,4)", ruutu2.toString());
     }
@@ -134,17 +146,17 @@ public class PeliTest {
         pala.liiku();
         assertTrue(pala.osuuAlasRuutuun(sailio));
     }
-    
+
     @Test
-    public void rivinKatoaminenKasvattaaPisteita(){
+    public void rivinKatoaminenKasvattaaPisteita() {
         Palasailio sailio = peli.getPalasailio();
-        
+
         sailio.lisaaPala(palaVasempaanReunaan());
         sailio.lisaaPala(palaKeskelle());
         sailio.lisaaPala(palaOikeaanReunaan());
 
         peli.etsiTaysiaRiveja();
-        
+
         assertEquals(40, peli.getPisteet());
     }
 
@@ -190,5 +202,4 @@ public class PeliTest {
 
         return pala1;
     }
-    
 }

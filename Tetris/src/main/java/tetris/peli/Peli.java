@@ -165,6 +165,10 @@ public class Peli extends Timer implements ActionListener {
         return nopeus;
     }
 
+    public Pistelaskuri getLaskuri() {
+        return laskuri;
+    }
+
     /**
      * Siirtää seuraavan palan oikeaan kohtaan ikkunassa, jotta piirtoalusta voi
      * piirtää sen.
